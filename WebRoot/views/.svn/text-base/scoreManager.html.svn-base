@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>评分管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+    
+    
+     <script type="text/javascript" src="/rs/resources/js/scoreManager.js"></script>
+     <script type="text/javascript" src="/rs/resources/js/jquery.min.js"></script>
+      
+      
+      
+  </head>
+  <body onload ="showAllInterview()">
+  <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">员工招聘管理系统</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+            <li><a href="addInterview.html">面试管理</a></li>
+            <li><a href="addText_interview.html">题库管理</a></li>
+            <li class="active" ><a href="#" >评分管理</a></li>
+            <li  ><a href="personCenter_interviewer.html">个人中心</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="register.html">注册</a></li>
+        <li><a href="login.html">登录</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--头部导航-->
+<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca">
+</div>
+
+<div class="container">
+    <!-- left, vertical navbar & content -->
+    <div class="row">
+		
+
+                <br>
+                <br>
+        		<br>
+        <div class="col-lg-12">
+            <div class="search_wrap" style="position:absolute;top:-40px;left:-135px;">
+                <!--  --><input type="text" class="form-control" onkeydown="if(event.keyCode==13){findInterview();}"
+                style="width: 150px;display: inline-block;margin-left:150px" placeholder="面试人姓名" id="realName"/>
+          
+                <button class="btn btn-info" id="search_Interview" 
+                	onclick = "findInterview()">搜索</button>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">面试信息</div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table bootstrap-admin-table-with-actions">
+                        <thead>
+                        <tr>
+                            <th>面试人编号</th>
+                            <th>面试时间</th>
+                            <th>评分</th>
+                            <th>评价</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_score">                      
+
+ 					<!-- 	<tr>
+                            <td class="num" data-id="$%{it.departmentId}">1</td>
+                            <td class="name">CTO</td>
+                            <td>  <select  class="form-control"  style="width:130px;position: relative;top: -3px;">
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                </select>
+                            </td>
+                            <td> <input type="text" placeholder="输入评价"/> </td>
+                            <td class="actions">
+                                    <button class="btn btn-sm btn-primary modify" data-id="$%{it.departmentId}">
+                                        <i class="glyphicon glyphicon-pencil"></i>保存</button>
+
+
+                                    <button class="btn btn-sm btn-danger delete" data-id="$%{it.departmentId}">
+                                        <i class="glyphicon glyphicon-trash"></i>删除
+                                    </button>
+                            </td>
+                        </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+	
+</body>
+</html>

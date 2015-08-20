@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加职位</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
+
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+
+     <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
+    <script src="/rs/resources/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+   //添加和查看按钮的切换
+    function changeView(which){
+        var myname =which.getAttribute("name");
+        which.setAttribute("class","active");
+        if(myname=="add"){            
+            var checkeds = document.getElementsByName("check");
+            checkeds[0].setAttribute("class","");
+            check.setAttribute("style","display:none;");
+            add.setAttribute("style","display:block;");
+
+        }else if(myname=="check"){
+            var checkeds = document.getElementsByName("add");
+            checkeds[0].setAttribute("class","");
+            add.setAttribute("style","display:none;");
+            check.setAttribute("style","display:block;");
+        }
+    }
+    //向弹窗添加内容
+    var pop_tr=null;//记录tr方便回写到table上
+    function fixPop(which){
+        var tr = which.parentNode.parentNode;
+        var tds = tr.getElementsByTagName("td");
+        var inputs = popChange.getElementsByTagName("input");
+        var textareas = popChange.getElementsByTagName("textarea");
+        pop_tr = tr;//记录是哪一行修改了
+
+        for(var i=1;i<tds.length-1;i++){
+            if(i==tds.length-2){//最后一个textarea
+                textareas[0].value = tds[i].innerText;
+            }else{
+               inputs[i-1].value=tds[i].innerText;
+            }
+           
+        }
+
+    }
+    //把弹窗内的信息回写到table上
+    function save2table(){
+        var inputs = popChange.getElementsByTagName("input");
+        var textareas = popChange.getElementsByTagName("textarea");
+        var tds = pop_tr.getElementsByTagName("td");
+        for(var i = 1;i<tds.length-1;i++){
+            if(i==tds.length-2){
+                tds[i].innerText = textareas[0].value;
+            }else{
+              tds[i].innerText = inputs[i-1].value;
+            }
+            
+        }
+    }
+  //表单验证
+    function checkadd(){
+    	if($("#department").val()==""){
+    		alert("部门不能为空！");
+    	}
+    	else if($("#position").val()==""){
+    		alert("职位名称不能为空！");
+    	}
+    	else if($("#number").val()==""){
+    		alert("人数不能为空！");
+    	}
+    	else if(isNaN($("#number").val())){
+    		alert("人数需为数字！");
+    	}
+    	else if($("#date").val()==""){
+    		alert("截止日期不能为空！");
+    	}
+    	else if($("#departmentRequire").val()==""){
+    		alert("职位要求不能为空！");
+    	}
+    }
+    </script>
+
+  </head>
+  <body>
+	<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+	<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a href="../" class="navbar-brand">员工招聘管理系统</a>
+		    </div>
+		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		      <ul class="nav navbar-nav">
+                <li class="active"><a href="addPosition.html">职位管理</a></li>
+                <li><a href="department.html">部门管理</a></li>
+                <li><a href="addText.html">题库管理</a></li>
+                <li ><a href="authority.html">权限管理</a></li>
+                <li ><a href="chart.html">报表统计</a></li>
+                <li  ><a href="personCenter_admin.html">个人中心</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="register.html">注册</a></li>
+		        <li><a href="login.html">登录</a></li>
+		      </ul>
+		    </nav>
+		  </div>
+	</header>
+    <!--头部导航-->
+	<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca"></div>
+
+	<div class="container">
+	    <!-- left, vertical navbar & content -->
+	    <div class="row">
+	        
+	        <div class="col-md-12 bootstrap-admin-col-left">
+	            <ul class="nav nav-pills pull-left">
+	                <li class="active" name="add" onclick="changeView(this)">
+	                    <a href="#add">添加职位</a>
+	                </li>
+	                <li name="check" onclick="changeView(this)">
+	                    <a href="#check">查看职位</a>
+	                </li>                
+	            </ul>
+	
+	        </div>
+	                <br>
+	                <br>
+	                <br>
+	
+	       <div class="col-md-12" id="add">
+	            <div class="panel panel-default bootstrap-admin-no-table-panel">
+	           		 <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+			            <form class="form-horizontal">
+			                 <fieldset>
+			                    <legend>添加职位</legend>
+			
+			                    <div class="form-group">
+			
+			                        <label class="col-lg-2 control-label" for="department">申请部门</label>
+			                        <div class="col-lg-10">
+			                            <select class="form-control" id="department" type="text" name="department" placeholder="请输入申请部门">
+			                            	<option>aa a </option>
+			                            </select>
+			                        </div>
+			                    </div>
+			
+			                    <div class="form-group">
+			                        <label class="col-lg-2 control-label" for="departmentName">职位名称</label>
+			                        <div class="col-lg-10">
+			                            <input class="form-control"  type="text" name="position" placeholder="请输入职位名称" id="position">
+			                        </div>
+			                    </div>
+			
+			                    <div class="form-group">
+			                        <label class="col-lg-2 control-label" for="departmentMan">人数</label>
+			                        <div class="col-lg-10">
+			                            <input class="form-control"  type="text" name="number" placeholder="请输入人数" id="number">
+			                        </div>
+			                    </div>
+			
+			                    <div class="form-group">
+			                        <label class="col-lg-2 control-label" for="deadline">简历截止日期</label>
+			                        <div class="col-lg-10">                            
+
+			                            <input type="date" class="form-control" id="date" class="form-control" name="date"/>
+
+			                        </div>
+			                    </div>                   
+			
+			                    <div class="form-group">
+			                        <label class="col-lg-2 control-label" for="departmentRequire">要求</label>
+			                        <div class="col-lg-10">
+			                            <textarea class="form-control"  type="text" rows="3"  placeholder="请输入要求" id="departmentRequire" name="require"></textarea>
+			                        </div>
+			                    </div>
+								<div class="from-group col-lg-offset-2">
+				                    <button type="button" class="btn btn-default" id="loginbtn" onclick="checkadd()">添加</button>
+				                    <button type="reset" class="btn btn-default">重置</button>
+								</div>
+			                </fieldset>
+			            </form>
+	     			</div>
+	    		</div>
+	 		</div>
+	
+	
+		    <div class="col-md-12" id="check" style="display:none;">
+		        <div class="panel panel-default bootstrap-admin-no-table-panel">
+		            <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+		                <fieldset>
+		                    <legend>查找职位:</legend>
+		                  
+		                    <div class="form-inline" style="margin:0 auto;">                    
+		                           <input type="text" class="form-control" placeholder="申请部门" name="position" size="30">
+		                           <input type="text" class="form-control" placeholder="人数" name="number" size="30">
+		                           <input type="date" class="form-control" name="date">
+		                           <input type="text" class="form-control" placeholder="职位" name="department" size="30">
+		                           <button  type="button" class="btn btn-primary">
+		                               <span class="glyphicon glyphicon-search"></span>
+		                           </button>
+		                    </div>
+		                    <br>
+		                    <br>
+		                    <button type="button" class="btn btn-danger">删除</button>
+		                    <button type="button" class="btn btn-default">保存全部</button>
+		                    <table class="table bootstrap-admin-table-with-actions">
+		
+		                        <thead>
+		                        <tr>
+		                            <th>选择</th>
+		                            <th>申请部门</th>
+		                            <th>职位</th>
+		                            <th>人数</th>
+		                            <th>简历截止日期</th> 
+		                            <th>要求</th> 
+		                            <th>操作</th>                          
+		                        </tr>
+		                        </thead>
+		                        <tbody id="tbody">
+		                        <tr>
+		                            <td><input type="checkbox" class="checkbox"></td>   
+		                            <td>财务部</td>
+		                            <td>部长助理</td>
+		                            <td>1</td>
+		                            <td>2016-12-03</td>
+		                            <td>有丰富经验者优先，月薪1万</td>
+		                            <td>                                
+		                               <button  class="btn btn-default" 
+		                        data-toggle="modal" data-target="#popChange" 
+		                        data-backdrop = "static" onclick="fixPop(this)"><span class="glyphicon glyphicon-edit">修改</span></button>
+		                            </td>
+		                        </tr>
+		                        </tbody>
+		
+		                    </table>
+		                </fieldset>
+		            </div>
+		        </div>
+		    </div>
+	
+	    </div>
+	</div>
+        
+
+	<div id="popChange" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">修改职位信息</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <label for="department1" class="control-label col-md-2">申请部门</label>
+                            <div class="col-md-10">
+                                <input type="text" id="department1" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position" class="control-label col-md-2">职位</label>
+                            <div class="col-md-10">
+                                <input type="text" id="position" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="people-number" class="control-label col-md-2">人数</label>
+                            <div class="col-md-10">
+                                <input type="text" id="people-number" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deadline1" class="control-label col-md-2">截止日期</label>
+                            <div class="col-md-10">
+                                <input type="date" id="deadline1" class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="departmentRequire1" class="control-label col-md-2">要求</label>
+                            <div class="col-md-10">
+                                <textarea id="departmentRequire1" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="save2table()">保存</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>     
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

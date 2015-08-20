@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
+
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+  </head>
+  <body>
+  <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">员工招聘管理系统</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+            <li><a href="addInterview.html">面试管理</a></li>
+            <li><a href="addText_interview.html">题库管理</a></li>
+            <li><a href="scoreManager.html">评分管理</a></li>
+            <li class="active"><a href="#">个人中心</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="register.html">注册</a></li>
+        <li><a href="login.html">登录</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--头部导航-->
+<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca">
+</div>
+<div class="container">
+    <!-- left, vertical navbar & content -->
+    <div class="row">
+     
+		
+                <br>
+                <br>
+        		<br>
+      <div class="col-lg-12">
+          <div class="panel panel-default" style="clear: both;">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">修改信息</div>
+                </div>
+                <div style="padding:50px 100px 100px 100px;">
+                <div class="form-group">
+                    <label style="position:absolute;left:60px;">帐号</label>
+                    <input class="form-control" type="text" name="account" id="account"   placeholder="账号">
+                </div>
+                <div class="form-group">
+                    <label style="position:absolute;left:60px;">姓名</label>
+                    <input class="form-control" type="text" name="nickname" id="realName" placeholder="姓名">
+                </div>
+                <div class="form-group">
+                    <label style="position:absolute;left:60px;">电话</label>
+                    <input class="form-control" type="text" name="phone" id="phoneNum" placeholder="电话">
+                </div>
+                <div class="form-group">
+                    <label style="position:absolute;left:60px;">邮箱</label>
+                    <input class="form-control" type="text" name="email" id="email"  placeholder="邮箱">
+                </div>
+       
+               
+                <div class="form-group">
+                    <label style="position:absolute;left:60px;">密码</label>
+                    <input class="form-control" type="text" name="password" id="password"  placeholder="密码">
+                </div>
+
+                <button class="btn  btn-primary btn-sm" type="button" id="loginbtn">提交</button>
+                                <br>
+                                <br>
+              
+                
+               
+                
+                                </div>
+                </div>
+                
+                 
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/demo/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/demo/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/demo/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="/demo/js/juicer.js"></script>
+  <script id="tpl" type="text/template">
+		{@each obj as it,index}
+				<tr>
+                            <td>$%{++index}</td>
+                            <td>$%{new Date(it.start).format("yyyy-MM-dd hh:mm:ss")}至$%{new Date(it.end).format("yyyy-MM-dd hh:mm:ss")}预定了$%{it.meettingroomName}会议室</td>
+               </tr>
+		
+		{@/each}
+</script>
+<script type="text/javascript">
+		$.ajax({     
+    	    url:encodeURI(encodeURI('/demo/Meetting/bookedMeetting')),      
+    	    type:'POST',    
+            contentType:"application/json",
+    	    cache:false,  
+    	    success:function(data) {  
+    	    console.log(data)
+    	      if(data.result != true){  
+    	      	    	if(data.msg == "login first!"){
+		    	      		window.location.href = "/demo/user/login"
+		    	      	}
+		    	      	else{
+    	          		 	alert(data.msg); 		    	      	
+		    	      	} 
+    	      }else{     
+    	      	var tpl = document.getElementById("tpl").innerHTML;
+    	      	var html = juicer(tpl,data);
+    	      	$("#tbody").append(html);
+    	       }     
+    	     },     
+    	    error : function() {  
+    	          alert("服务器忙，稍后重试！");     
+    	      }}
+    	 );
+  </script>
+    	 
+</body>
+</html>
+

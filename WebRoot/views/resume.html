@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加题目</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
+
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+</head>
+<body>
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">员工招聘管理系统</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li><a href="interView_user.html">面试中心</a></li>
+                <li class="active"><a href="#">简历管理</a></li>
+                <li  ><a href="personCenter_user.html">个人中心</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="register.html">注册</a></li>
+                <li><a href="login.html">登录</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--头部导航-->
+<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca">
+</div>
+
+<div class="container">
+<!-- left, vertical navbar & content -->
+<div class="row">
+<div class="col-md-12 bootstrap-admin-col-left">
+    <ul class="nav nav-pills pull-left">
+        <li class="active" name="my" onclick="changeView(this)">
+            <a href="#my">我的简历</a>
+        </li>
+        <li name="add" onclick="changeView(this)">
+            <a href="#add">添加简历</a>
+        </li>
+    </ul>
+
+</div>
+<br>
+<br>
+<br>
+<!--我的简历-->
+<div class="col-md-12" id="my">
+    <div class="panel panel-default bootstrap-admin-no-table-panel">
+        <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+            <fieldset>
+                <legend>
+                    我的简历
+                </legend>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>建立日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2015-02-02</td>
+                        <td>
+                            <button type="button" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#resume-modal" data-backdrop="static">查看</button>
+                            <button type="button" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#resume-modify-modal" data-backdrop="static">修改</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<!--查看简历弹出框-->
+<div class="modal fade" id="resume-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">简历详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>姓名</td>
+                        <td>张三</td>
+                        <td>性别</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>年龄</td>
+                        <td>22</td>
+                        <td>电话</td>
+                        <td>12345678900</td>
+                    </tr>
+                    <tr>
+                        <td>邮箱</td>
+                        <td>123456@qq.com</td>
+                        <td>学历</td>
+                        <td>本科</td>
+                    </tr>
+                    <tr>
+                        <td>专业技能</td>
+                        <td colspan="3">精通十八般武艺<br>上知天文，下知地理</td>
+                    </tr>
+                    <tr>
+                        <td>经历</td>
+                        <td colspan="3">精通十八般武艺<br>上知天文，下知地理</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--修改简历弹出框-->
+<div class="modal fade" id="resume-modify-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">修改简历</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal col-lg-12">
+                    <div class="col-lg-6" style="margin-bottom: 10px;">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="name1">姓名</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="name1" type="text" placeholder="请输入姓名">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="email1">邮箱</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="email1" type="text" placeholder="请输入邮箱">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="edu1">学历</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="edu1" type="text" placeholder="请输入学历">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">专业技能</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" placeholder="请输入专业技能">
+
+                                </textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6" style="margin-bottom: 5px;">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">性别</label>
+                            <label class="col-lg-9">
+                                <input type="radio" class="radio-inline" name="sex" checked>男
+                                <input type="radio" class="radio-inline" name="sex">女
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="age">年龄</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="age1" type="number" placeholder="请输入年龄">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="tel">电话</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="tel1" type="text" placeholder="请输入电话">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">经历</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" placeholder="请输入经历">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="text-align: center">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <button type="reset" class="btn btn-primary">重置</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer" style="clear: both;">
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--添加简历-->
+<div class="col-md-12" id="add" style="display: none;">
+    <div class="panel panel-default bootstrap-admin-no-table-panel">
+        <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+            <form class="form-horizontal col-lg-12">
+                <fieldset>
+                    <legend>添加简历</legend>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="name">姓名</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="name" type="text" placeholder="请输入姓名">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="email">邮箱</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="email" type="text" placeholder="请输入邮箱">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="edu">学历</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="edu" type="text" placeholder="请输入学历">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="skills">专业技能</label>
+                            <div class="col-lg-9">
+                                <div style="padding: 8px;">
+                                    <div class="resume_item">熟悉c++</div>
+                                    <div class="resume_item">精通linux的开机</div>
+                                </div>
+                                <input class="form-control" type="text" placeholder="例如，熟悉c++" id="skills">
+                                <button class="btn btn-info" style="display: inline-block;margin-top: 10px;">添加</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">性别</label>
+                            <div class="col-lg-9">
+                                <input type="radio" class="radio-inline" name="sex" checked>男
+                                <input type="radio" class="radio-inline" name="sex">女
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="age">年龄</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="age" type="number" placeholder="请输入年龄">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="tel">电话</label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  id="tel" type="text" placeholder="请输入电话">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="experience">经历</label>
+                            <div class="col-lg-9">
+                                <div style="padding: 8px;">
+                                    <div class="resume_item">中软国际公司 讲师职位 2015年8月 到 2015年10月</div>
+                                    <div class="resume_item">中软国际公司 讲师职位 2015年8月 到 2015年10月</div>
+                                </div>
+                                <input class="form-control" id= "experience" type="text" placeholder="例如,中软国际公司 讲师职位 2015年8月 到 2015年10月">
+                                <button class="btn btn-info" style="display: inline-block;margin-top: 10px;">添加</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="col-lg-offset-6 btn btn-primary">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
+<script src="/rs/resources/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    //添加和查看按钮的切换
+    function changeView(which){
+        var myname =which.getAttribute("name");
+        which.setAttribute("class","active");
+        if(myname=="add"){
+            var checkeds = document.getElementsByName("my");
+            checkeds[0].setAttribute("class","");
+            my.setAttribute("style","display:none;");
+            add.setAttribute("style","display:block;");
+
+        }else if(myname=="my"){
+            var checkeds = document.getElementsByName("add");
+            checkeds[0].setAttribute("class","");
+            add.setAttribute("style","display:none;");
+            my.setAttribute("style","display:block;");
+        }
+    }
+</script>
+</html>

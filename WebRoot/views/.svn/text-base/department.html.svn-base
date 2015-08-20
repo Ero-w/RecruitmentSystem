@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>部门管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
+
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+
+    <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
+    <script src="/rs/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        //添加和查看按钮的切换
+        function changeView(which){
+            var myname =which.getAttribute("name");
+            which.setAttribute("class","active");
+            if(myname=="add"){
+                var checkeds = document.getElementsByName("check");
+                checkeds[0].setAttribute("class","");
+                check.setAttribute("style","display:none;");
+                add.setAttribute("style","display:block;");
+
+            }else if(myname=="check"){
+                var checkeds = document.getElementsByName("add");
+                checkeds[0].setAttribute("class","");
+                add.setAttribute("style","display:none;");
+                check.setAttribute("style","display:block;");
+            }
+        }
+    </script>
+  </head>
+  <body>
+	<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+	<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a href="../" class="navbar-brand">员工招聘管理系统</a>
+		    </div>
+		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		      <ul class="nav navbar-nav">
+                    <li><a href="addPosition.html">职位管理</a></li>
+                    <li class="active"><a href="#">部门管理</a></href></li>
+                    <li><a href="addText.html">题库管理</a></li>
+                    <li><a href="authority.html">权限管理</a></li>
+                    <li><a href="chart.html">报表统计</a></li>
+                    <li><a href="personCenter_admin.html">个人中心</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		            <li><a href="register.html">注册</a></li>
+		            <li><a href="login.html">登录</a></li>
+		      </ul>
+		    </nav>
+		  </div>
+	</header>
+    <!--头部导航-->
+	<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca"></div>
+
+	<div class="container">
+	    <div class="row">
+	        
+	        <div class="col-md-12 bootstrap-admin-col-left">
+	            <ul class="nav nav-pills pull-left">
+	                <li class="active" name="check" onclick="changeView(this)">
+	                    <a href="#add">查看部门</a>
+	                </li>
+	                <li name="add" onclick="changeView(this)">
+	                    <a href="#check">添加部门</a>
+	                </li>                
+	            </ul>
+	        </div>
+            <br>
+            <br>
+            <br>
+	       <div class="col-md-12" id="check">
+	            <div class="panel panel-default bootstrap-admin-no-table-panel">
+	           		 <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+			            <fieldset>
+                            <legend>所有部门</legend>
+                            <div class="deprtment-wrap">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>部门编号</th>
+                                        <th>部门名称</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    <tr>
+                                        <td>001</td>
+                                        <td>研发部</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger">删除</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+			            </fieldset>
+
+	     			</div>
+	    		</div>
+	 		</div>
+	
+	
+		    <div class="col-md-12" id="add" style="display:none;">
+		        <div class="panel panel-default bootstrap-admin-no-table-panel">
+		            <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+		                <fieldset>
+		                    <legend>添加部门</legend>
+		                    <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="dept-num" class="control-label col-lg-2">部门编号：</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="dept-num" placeholder="请输入部门编号">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dept-name" class="control-label col-lg-2">部门名称：</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="dept-name" placeholder="请输入部门名称">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-3">
+                                        <input type="submit" class="btn btn-primary" value="提交">
+                                        <input type="reset" class="btn btn-primary" value="重置">
+                                    </div>
+                                </div>
+		                    </form>
+
+		                </fieldset>
+		            </div>
+		        </div>
+		    </div>
+	
+	    </div>
+	</div>
+</body>
+</html>

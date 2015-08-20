@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+ <!--   <bean id="userApi" class="com.rs.action.api.User" scope="prototype">
+		<property name="userDAO" ref="TUserDAO">
+		</property>
+	</bean> -->
+
+
+	<bean id="InterviewAPI" class="com.rs.action.api.InterviewAPI" scope="prototype">
+	<!-- 	 <property name="interviewService" ref="interviewService"></property> -->	
+		<property name="staffDAO" >
+			<ref bean="StaffDAO"></ref>
+		</property>
+		<property name="applyDAO">
+			<ref bean="ApplyDAO"></ref>
+		</property>
+		<property name="interviewDAO">
+			<ref bean="InterviewDAO"></ref>
+		</property>
+	</bean>  
+	
+
+	
+</beans>
