@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
@@ -26,6 +27,9 @@ public class AddQuestion extends ActionSupport {
 		String passwordMysql="root";
 		Connection conn=DriverManager.getConnection(url,usernameMysql,passwordMysql);
 		Statement stmt=conn.createStatement();
+		HttpServletRequest request=ServletActionContext.getRequest();
+		title=request.getParameter("title");
+		answer=request.getParameter("answer");
 		String sql="insert into question(title,answer,level,sid) values('"+title+"','"+answer+"',1,1)";
 		int flag=stmt.executeUpdate(sql);
 		result=(flag==1)?"ok":"err";
@@ -33,7 +37,7 @@ public class AddQuestion extends ActionSupport {
 		conn.close();
 		HttpServletResponse response=ServletActionContext.getResponse();
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(flag);
+		response.getWriter().write(result);
 		
 	}
 }

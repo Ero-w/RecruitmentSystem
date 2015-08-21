@@ -12,6 +12,9 @@
 	</bean>
 	<bean id="check" class="com.rs.action.api.CheckQuestion" scope="prototype">
 	</bean> 
-
+	<bean id="add" class="com.rs.action.api.AddQuestion" scope="prototype">
+	</bean>
+	<bean id="save" class="com.rs.action.api.SaveQuestion" scope="prototype">
+	</bean>
 	
 </beans>
