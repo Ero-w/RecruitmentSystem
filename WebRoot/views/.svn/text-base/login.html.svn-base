@@ -1,15 +1,13 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>登录</title>
-    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
- 
+    <script type="text/javascript" src="/rs/resources/js/jquery-1.8.2.min.js"></script>
+     <script type="text/javascript" src="/rs/resources/js/login.js"></script>
   </head>
   <body>
   <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
@@ -26,7 +24,6 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        		
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register.html">注册</a></li>
@@ -62,7 +59,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-3 col-sm-10">
-              <button type="button" class="btn btn-info" id="loginbtn">登录</button>
+              <button type="button" class="btn btn-info" id="loginbtn" onclick="login()">登录</button>
               <button type="reset" class="btn btn-info">重置</button>
             </div>
           </div>
@@ -71,8 +68,5 @@
         <div class="col-md-4"></div>
         </div>
     </div>
-
-
-
 </body>
 </html>

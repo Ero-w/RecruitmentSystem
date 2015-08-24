@@ -9,40 +9,11 @@
 	<package name="interview_api" extends="json-default" namespace="/">
 	<!-- name 最好有自己的前缀，避免与别人的路由文件冲突，会报NoSuchMethodException  -->
 	<!-- *表示通配符，{1}表示第一个通配符代表的字符串。   例如，访问/in_login  会调用 login方法，因为这时候 *={1}=login -->
-		<action name="in_*" class="com.rs.action.api.InterviewAPI" method="{1}">
-			<result type="json">
-			<param name="root">interviews</param>
-			</result>
-		</action>
-		
-		<!-- 评分管理中查找面试人 -->
-		<action name="findInterview" class="InterviewAPI" method="findInterview">
-			<result type="json">
-			<param name="root">interviews</param>
-			</result>
-		</action>			
-		
-	
-		
-		<action name="saveScore" class="InterviewAPI" method="saveScore">
-			<result type="json">
-			<param name="root">map</param>
-			</result>
-		</action>		
-		
-		<action name="deleteInterview" class="InterviewAPI" method="deleteInterview">
+		<action name="in_*" class="" method="{1}">
 			<result type="json">
 			<param name="root">map</param>
 			</result>
 		</action>
-		
-		<action name="addInterview" class="InterviewAPI" method="addInterview">
-			<result type="json">
-			<param name="root">map</param>
-			</result>
-		</action>
-
-    </package> 
-    
+    </package>
 
 </struts>    

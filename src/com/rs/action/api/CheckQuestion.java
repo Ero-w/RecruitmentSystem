@@ -13,12 +13,12 @@ import org.apache.struts2.ServletActionContext;
 
 import net.sf.json.JSONArray;
 
+import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CheckQuestion extends ActionSupport {
 	private int count=0;
 	public void check() throws ClassNotFoundException, SQLException, IOException{
-		
 			Class.forName("com.mysql.jdbc.Driver");
 			String url="jdbc:mysql://localhost:3306/recruitment_system";
 			String usernameMysql="root";

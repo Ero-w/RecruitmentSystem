@@ -1,7 +1,9 @@
-package com.rs.action.api;
+﻿package com.rs.action.api;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,11 +22,15 @@ public class AccountStaffAPI extends ActionSupport {
 	
 	//http://localhost:8080/rs/as_login?json={user:'123',password:'123'}
 	public String login(){
+		
 		if(jsonObject==null){//传入参数为空
 			map.put("state", -100);
 		}else{
 			int state=accountService.login(new Account(jsonObject.getString("user"), jsonObject.getString("password")));
 			map.put("state", state);
+			if(state==1){
+				ServletActionContext.getRequest().getSession().setAttribute("user", jsonObject.getString("user"));
+			}
 		}
 		return SUCCESS;
 	}
