@@ -19,7 +19,7 @@ function login(){
 		var obj={user:user,password:password};
 		$.post('/rs/as_login',{json:JSON.stringify(obj)},function(res){
 			if(res.state>0){
-				window.location.href="/rs/views/addText.html";
+				window.location.href="/rs/views/addText.jsp";
 			}else{
 				if(res.state==-1){
 					alert('账号不存在');

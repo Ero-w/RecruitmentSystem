@@ -1,5 +1,10 @@
 ﻿package com.rs.action.api;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +26,7 @@ public class AccountStaffAPI extends ActionSupport {
 	private IAccountService accountService;
 	
 	//http://localhost:8080/rs/as_login?json={user:'123',password:'123'}
-	public String login(){
+	public String login() throws ClassNotFoundException, SQLException{
 		
 		if(jsonObject==null){//传入参数为空
 			map.put("state", -100);
@@ -29,7 +34,22 @@ public class AccountStaffAPI extends ActionSupport {
 			int state=accountService.login(new Account(jsonObject.getString("user"), jsonObject.getString("password")));
 			map.put("state", state);
 			if(state==1){
-				ServletActionContext.getRequest().getSession().setAttribute("user", jsonObject.getString("user"));
+				Class.forName("com.mysql.jdbc.Driver");
+				String url="jdbc:mysql://localhost:3306/recruitment_system";
+				String usernameMysql="root";
+				String passwordMysql="root";
+				Connection conn=DriverManager.getConnection(url,usernameMysql,passwordMysql);
+				Statement stmt=conn.createStatement();
+				String sql="select * from staff natural join account where aid='"+jsonObject.getString("user")+"'";
+				ResultSet rs=stmt.executeQuery(sql);
+				if(rs.next()){
+					ServletActionContext.getRequest().getSession().setAttribute("username", rs.getString("sname"));
+					ServletActionContext.getRequest().getSession().setAttribute("sid", rs.getInt("sid"));
+				}
+				rs.close();
+				stmt.close();
+				conn.close();
+				
 			}
 		}
 		return SUCCESS;

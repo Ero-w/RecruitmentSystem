@@ -22,7 +22,8 @@ public class AddQuestion extends ActionSupport {
 	private String answer;
 	private String result;
 	public void add() throws ClassNotFoundException, SQLException, IOException{
-		String aid=(String)ServletActionContext.getRequest().getSession().getAttribute("user");
+		int sid=Integer.parseInt(ServletActionContext.getRequest().getSession().getAttribute("sid").toString());
+		System.out.print(sid);
 		Class.forName("com.mysql.jdbc.Driver");
 		String url="jdbc:mysql://localhost:3306/recruitment_system";
 		String usernameMysql="root";
@@ -32,13 +33,7 @@ public class AddQuestion extends ActionSupport {
 		HttpServletRequest request=ServletActionContext.getRequest();
 		title=request.getParameter("title");
 		answer=request.getParameter("answer");
-		String sql="select * from account where aid='"+aid+"'";
-		ResultSet rs=stmt.executeQuery(sql);
-		String sid=null;
-		if(rs.next()){
-			sid=rs.getString("sid");
-		}
-		sql="insert into question(title,answer,level,sid) values('"+title+"','"+answer+"',1,"+sid+")";
+		String sql="insert into question(title,answer,level,sid) values('"+title+"','"+answer+"',1,"+sid+")";
 		int flag=stmt.executeUpdate(sql);
 		result=(flag==1)?"ok":"err";
 		stmt.close();
