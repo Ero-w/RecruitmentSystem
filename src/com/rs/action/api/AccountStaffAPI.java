@@ -45,6 +45,7 @@ public class AccountStaffAPI extends ActionSupport {
 				if(rs.next()){
 					ServletActionContext.getRequest().getSession().setAttribute("username", rs.getString("sname"));
 					ServletActionContext.getRequest().getSession().setAttribute("sid", rs.getInt("sid"));
+					ServletActionContext.getRequest().getSession().setAttribute("auth", rs.getInt("priority"));
 				}
 				rs.close();
 				stmt.close();
