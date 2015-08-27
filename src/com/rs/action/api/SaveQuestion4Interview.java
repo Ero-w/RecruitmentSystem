@@ -15,15 +15,15 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SaveQuestion extends ActionSupport {
+public class SaveQuestion4Interview extends ActionSupport {
 	public String[][] question;
 	public int count=0;
 	public void save() throws ClassNotFoundException, SQLException, IOException{
+	int sid=Integer.parseInt(ServletActionContext.getRequest().getSession().getAttribute("sid").toString());
 	HttpServletRequest request=ServletActionContext.getRequest();
 	String str=request.getParameter("question");
 	JSONArray mainArray=JSON.parseArray(str);
 	question=new String[mainArray.size()][3];
-	//取得要保存的问题列表
 	for(int i=0;i<mainArray.size();i++){
 		JSONArray paramObject=(JSONArray)mainArray.get(i);
 		int x=0;
@@ -38,39 +38,12 @@ public class SaveQuestion extends ActionSupport {
 	String passwordMysql="root";
 	Connection conn=DriverManager.getConnection(url,usernameMysql,passwordMysql);
 	Statement stmt=conn.createStatement();
-	String sql="select * from question";
-	ResultSet rs=stmt.executeQuery(sql);
-	//统计现有问题数
-	while(rs.next())count++;
-	String[][] a=new String[count][2];
-	rs=stmt.executeQuery(sql);
-	for(int x=0;x<count;x++){
-		rs.next();
-		a[x][0]=String.valueOf(rs.getInt("qid"));
-		a[x][1]="1";
-	}
-	//比对发现被删除的问题
-	for(int z=0;z<a.length;z++){
-		int y=0;
-		for(;y<question.length;y++){
-			if(a[z][0].equals(question[y][0]))
-				break;
-			}
-		if(y>=question.length)a[z][1]="0";
-	}
-	//对所有问题进行更新
+	String sql="delete from question where sid="+sid;
+	stmt.executeUpdate(sql);
 	for(int i=0;i<question.length;i++){
-		sql="update question set title='"+question[i][1]+"',answer='"+question[i][2]+"' where qid="+question[i][0];
+		sql="insert into question values("+question[i][0]+",'"+question[i][1]+"','"+question[i][2]+"',1,"+sid+")";
 		stmt.executeUpdate(sql);
 	}
-	//把被删除的问题从数据库移除
-	for(int i=0;i<a.length;i++){
-		if(a[i][1]=="0"){
-			sql="delete from question where qid='"+a[i][0]+"'";
-			stmt.executeUpdate(sql);
-		}
-	}
-	rs.close();
 	stmt.close();
 	conn.close();
 	HttpServletResponse response=ServletActionContext.getResponse();

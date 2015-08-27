@@ -1,3 +1,14 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String username=(String)session.getAttribute("username");
+int sid=Integer.parseInt(session.getAttribute("sid").toString());
+if(username==null||sid!=2){
+	response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+  String newLocn = "/rs/views/login.html";
+  response.setHeader("Location",newLocn);
+}
+%>
+
 
 <!DOCTYPE html>
 <html>
@@ -32,8 +43,8 @@
             <li><a href="personCenter_interviewer.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="register.html">注册</a></li>
-        <li><a href="login.html">登录</a></li>
+        <li><p style="padding:16px 5px 0px 0px;color:#428bca">Welcome</p></li>
+        <li><a href="register.html"><%=username %></a></li>
       </ul>
     </nav>
   </div>
@@ -92,15 +103,15 @@
 	                <fieldset>
 	                    <legend>我的题目:</legend>
 	                    <div class="form-inline" style="padding-left:30%">                    
-	                           <input type="text" class="form-control" placeholder="题号/题目关键字" size="30">
-	                           <button  type="button" class="btn btn-primary" id="">
+	                           <input type="text" class="form-control" id="searchValue" placeholder="题号/题目关键字" size="30">
+	                           <button  type="button" class="btn btn-primary" onclick="searchQuestion()">
 	                               <span class="glyphicon glyphicon-search"></span>
 	                           </button>
 	                    </div>
 	                    <br>
 	                    <br>
 	                    <button type="button" class="btn btn-danger" onclick="deleteSelected()">删除</button>
-	                    <button type="button" class="btn btn-default">保存全部</button>
+	                    <button type="button" class="btn btn-default" onclick="saveQuestion4Interview()">保存全部</button>
 	                    <table class="table bootstrap-admin-table-with-actions">
 				<!-- 我的问题 -->
 	                        <thead>
@@ -113,7 +124,7 @@
 	                        </tr>
 	                        </thead>
 	                        <tbody id="tbody">
-	                        <tr>
+	                        <!--  <tr>
 	                            <td><input type="checkbox" class="checkbox"></td>   
 	                            <td>998</td>
 	                            <td>什么是 Servlet？</td>
@@ -140,7 +151,7 @@
 	                        data-toggle="modal" data-backdrop="static" 
 	                        data-target="#modify" onclick="fixPop(this)"><span class="glyphicon glyphicon-edit">修改</span></button>
 	                            </td>
-	                        </tr>	                        
+	                        </tr>	             -->           
 	                        </tbody>
 	                    </table>
 	                </fieldset>
@@ -154,8 +165,8 @@
 	                <fieldset>
 	                    <legend>所有题目:</legend>
 	                    <div class="form-inline" style="padding-left:30%">                    
-	                           <input type="text" class="form-control" placeholder="题号/题目关键字" size="30">
-	                           <button  type="button" class="btn btn-primary" id="">
+	                           <input type="text" class="form-control"  id="searchAllValue" placeholder="题号/题目关键字" size="30">
+	                           <button  type="button" class="btn btn-primary" onclick="searchAllQuestion()">
 	                               <span class="glyphicon glyphicon-search"></span>
 	                           </button>
 	                    </div>
@@ -167,7 +178,6 @@
 				<!--所有问题 -->
 	                        <thead>
 	                        <tr>
-	                        	<th>选择</th>
 	                            <th>题号</th>
 	                            <th>题目内容</th>
 	                            <th>答案</th>	                                         
@@ -224,7 +234,7 @@
                         <div class="form-group">
                             <label for="username" class="control-label col-md-2">题号</label>
                             <div class="col-md-10">
-                                <input type="text" id="" class="form-control" />
+                                <input type="text" id="" class="form-control" disabled="true"/>
                             </div>
                         </div>
 
@@ -259,6 +269,48 @@
 
 </body>
 <script type="text/javascript">
+	function searchQuestion(){
+		var tosearch=document.getElementById("searchValue").value;
+		var question=document.getElementById("tbody");
+		if(tosearch==""){
+			var i=question.children.length-1;
+			while(i>=0){
+				question.childNodes[i].setAttribute("style","display:table-row;");
+				i--;
+			}
+		}else{
+			eval("var rep=/"+tosearch+"/");
+			for(var count=0;count<question.children.length;count++){
+				if((rep.test(question.childNodes[count].childNodes[2].innerText))||(rep.test(question.childNodes[count].childNodes[1].innerText))){
+					question.childNodes[count].setAttribute("style","display:table-row;");
+				}else{
+					question.childNodes[count].setAttribute("style","display:none;");
+				}
+			}
+		}
+		
+	}
+	function searchAllQuestion(){
+		var tosearch=document.getElementById("searchAllValue").value;
+		var question=document.getElementById("tbody1");
+		if(tosearch==""){
+			var i=question.children.length-1;
+			while(i>=0){
+				question.childNodes[i].setAttribute("style","display:table-row;");
+				i--;
+			}
+		}else{
+			eval("var rep=/"+tosearch+"/");
+			for(var count=0;count<question.children.length;count++){
+				if((rep.test(question.childNodes[count].childNodes[1].innerText))||(rep.test(question.childNodes[count].childNodes[0].innerText))){
+					question.childNodes[count].setAttribute("style","display:table-row;");
+				}else{
+					question.childNodes[count].setAttribute("style","display:none;");
+				}
+			}
+		}
+		
+	}
    //添加和查看按钮的切换
     function changeView(which){
         var myname =which.getAttribute("name");
@@ -278,7 +330,7 @@
             allText.setAttribute("style","display:block;");
             document.getElementById("delete").setAttribute("style","display:none");
             document.getElementById("saveall").setAttribute("style","display:none");
-            ajaxCheckQuestion();
+            ajaxCheckAllQuestion();
                  
         }else if(myname == "myText"){
             document.getElementsByName("allText")[0].setAttribute("class","");
@@ -286,14 +338,15 @@
             allText.setAttribute("style","display:none;");
             addText.setAttribute("style","display:none;");
           	 myText.setAttribute("style","display:block;");
-           document.getElementById("delete").setAttribute("style","display:inline-block");
+           	document.getElementById("delete").setAttribute("style","display:inline-block");
             document.getElementById("saveall").setAttribute("style","display:inline-block");
+            ajaxCheckQuestion();
         }
     }
-    //取得所有问题
+    //获取我的问题
     function checkQuestion(qt){
 			var question=qt;
-            var tb=document.getElementById("tbody1");
+            var tb=document.getElementById("tbody");
             while(tb.hasChildNodes())tb.removeChild(tb.firstChild);
             for(var i=0;i<question.length;i++){
             var tr=document.createElement("tr");
@@ -314,6 +367,17 @@
             td.setAttribute("width","400px");
             tr.appendChild(td);
          	td=document.createElement("td");
+         	var button=document.createElement("button");
+         	button.setAttribute("class","btn btn-primary");
+         	button.setAttribute("onclick","fixPop(this)");
+         	button.setAttribute("data-toggle","modal");
+         	button.setAttribute("data-backdrop","static");
+         	button.setAttribute("data-target","#modify");
+         	var span=document.createElement("span");
+         	span.setAttribute("class","glyphicon glyphicon-edit");
+         	span.innerText="修改"
+         	button.appendChild(span);
+         	td.appendChild(button);
          	tr.appendChild(td);
             tb.appendChild(tr);
 		}
@@ -328,7 +392,7 @@
         }
     }
     function ajaxCheckQuestion(){
-        var url="/rs/qu_check";
+        var url="/rs/checkInter";
         if(window.XMLHttpRequest){
             xmlHttp=new XMLHttpRequest();
         }else if(window.ActiveXObject){
@@ -336,6 +400,127 @@
         }
         xmlHttp.open("POST",url,true);
         xmlHttp.onreadystatechange=callbackCheck;
+        xmlHttp.send();
+    }
+    //删除选中问题
+	function deleteSelected(){
+		var tb=document.getElementById("tbody");
+		var selected=tbody.getElementsByTagName("input");
+		var todelete=new Array();
+		for(var start=0,max=selected.length,count=0;start<max;start++){
+			if(selected[start].checked==true){
+				var tr=selected[start].parentElement.parentElement;
+				todelete[count]=tr;
+				count++;
+			}
+		}
+		for(var i=0,end=count;i<end;i++){
+			tb.removeChild(todelete[i]);
+		}
+	}
+	//修改及删除操作保存到数据库
+	function callbackSave(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                if(xmlDoc="ok")alert("保存成功")
+                else alert("保存失败")
+            }
+        }
+    }
+	function ajaxSaveQuestion(dt){
+		var url="/rs/saveInter";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        var x="question="+dt;
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackSave;
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send(x);
+	}
+	function saveQuestion4Interview(){
+		var tr=tbody.getElementsByTagName("tr");
+		var toSave=new Array();
+		for(var i=0;i<tr.length;i++){
+			toSave[i]=new Array();
+			for(var j=0;j<3;j++){
+				toSave[i][j]=1;
+			}
+		}
+		for(var i=0,end=tr.length;i<end;i++){
+			toSave[i][0]=tr[i].childNodes[1].innerText;
+			toSave[i][1]=tr[i].childNodes[2].innerText;
+			toSave[i][2]=tr[i].childNodes[3].innerText;
+		}
+		var str=arrayToJson(toSave);
+		ajaxSaveQuestion(str);
+		
+	}
+	function arrayToJson(o) {   
+        var r = [];   
+        if (typeof o == "string") return "\"" + o.replace(/([\'\"\\])/g, "\\$1").replace(/(\n)/g, "\\n").replace(/(\r)/g, "\\r").replace(/(\t)/g, "\\t") + "\"";   
+        if (typeof o == "object") {   
+        if (!o.sort) {   
+            for (var i in o)   
+            r.push(i + ":" + arrayToJson(o[i]));   
+            if (!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {   
+            r.push("toString:" + o.toString.toString());   
+            }   
+            r = "{" + r.join() + "}";   
+        } else {   
+            for (var i = 0; i < o.length; i++) {   
+            r.push(arrayToJson(o[i]));   
+            }   
+            r = "[" + r.join() + "]";   
+        }   
+        return r;   
+        }   
+        return o.toString();   
+    }  
+    //取得所有问题
+    function checkAllQuestion(qt){
+			var question=qt;
+            var tb=document.getElementById("tbody1");
+            while(tb.hasChildNodes())tb.removeChild(tb.firstChild);
+            for(var i=0;i<question.length;i++){
+            var tr=document.createElement("tr");
+            var td=document.createElement("td");
+            td=document.createElement("td");
+            td.innerText=question[i][0];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][1];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][2];
+            td.setAttribute("width","400px");
+            tr.appendChild(td);
+         	td=document.createElement("td");
+         	tr.appendChild(td);
+            tb.appendChild(tr);
+		}
+	}
+    function callbackCheckAll(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                var question=eval(xmlDoc);
+                checkAllQuestion(question);
+            }
+        }
+    }
+    function ajaxCheckAllQuestion(){
+        var url="/rs/qu_check";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackCheckAll;
         xmlHttp.send();
     }
     //向弹窗添加内容
@@ -400,3 +585,4 @@
 <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
 <script src="/rs/resources/js/bootstrap.js"></script>
 </html>
+

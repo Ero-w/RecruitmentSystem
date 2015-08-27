@@ -18,6 +18,10 @@
 		</action>
 		<action name="save" class="save" method="save">
 		</action>
+		<action name="checkInter" class="checkInter" method="check">
+		</action>
+		<action name="saveInter" class="saveInter" method="save">
+		</action>
     </package>
 
 </struts>    

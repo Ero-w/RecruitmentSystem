@@ -23,7 +23,6 @@ public class AddQuestion extends ActionSupport {
 	private String result;
 	public void add() throws ClassNotFoundException, SQLException, IOException{
 		int sid=Integer.parseInt(ServletActionContext.getRequest().getSession().getAttribute("sid").toString());
-		System.out.print(sid);
 		Class.forName("com.mysql.jdbc.Driver");
 		String url="jdbc:mysql://localhost:3306/recruitment_system";
 		String usernameMysql="root";

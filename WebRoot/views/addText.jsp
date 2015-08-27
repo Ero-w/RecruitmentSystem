@@ -1,6 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String username=(String)session.getAttribute("username");
+int sid=Integer.parseInt(session.getAttribute("sid").toString());
+if(username==null||sid!=1){
+	response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+  String newLocn = "/rs/views/login.html";
+  response.setHeader("Location",newLocn);
+}
+if(sid==2)
+  response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+  String newLocn = "/rs/views/addText_interview.jsp";
+  response.setHeader("Location",newLocn);
 %>
 
 

@@ -16,5 +16,9 @@
 	</bean>
 	<bean id="save" class="com.rs.action.api.SaveQuestion" scope="prototype">
 	</bean>
+	<bean id="saveInter" class="com.rs.action.api.SaveQuestion4Interview" scope="prototype">
+	</bean>
+	<bean id="checkInter" class="com.rs.action.api.CheckQuestion4Interview" scope="prototype">
+	</bean>
 	
 </beans>
