@@ -26,11 +26,11 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-            <li  class="active"><a href="addPosition.html">职位管理</a></li>
+            <li class="active"><a href="addPosition.html">职位管理</a></li>
             <li><a href="addText.html">题库管理</a></li>
             <li><a href="authority.html">权限管理</a></li>
             <li><a href="chart.html">报表统计</a></li>
-            <li ><a href="personCenter.html">个人中心</a></li>
+            <li><a href="personCenter.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/demo/user/register">注册</a></li>

@@ -17,7 +17,7 @@
     
     
   </head>
-  <body>
+  <body onload="showAllMessage()" >
   <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
     <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="container">
@@ -35,7 +35,8 @@
             <li class="active"><a href="#">面试管理</a></li>
             <li><a href="addText_interview.html">题库管理</a></li>
             <li><a href="scoreManager.html">评分管理</a></li>
-            <li  ><a href="personCenter_interviewer.html">个人中心</a></li>
+            <li><a href="resumeInterview.html" >简历管理</a></li>
+            <li><a href="personCenter_interviewer.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register.html">注册</a></li>
@@ -69,23 +70,26 @@
         <div class="col-md-12">
             <div class="panel panel-default bootstrap-admin-no-table-panel">
             <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-            <form class="form-horizontal">
+            <form class="form-horizontal" >
                 <fieldset>
                     <legend>添加面试记录</legend>
             
                     <div class="form-group">
-                        <label class="col-lg-2 control-label" for="focusedInput">面试人</label>
-                         <div class="col-lg-10">
+                        <label class="col-lg-2 control-label" for="focusedInput">面试信息</label>
+                         <!-- <div class="col-lg-10">
                             <input class="form-control"  id="staff_name" type="text" placeholder="请输入名称">
+                        </div> --> 
+                        <div class="col-lg-10" >
+                        	<select  class="form-control" id="select_message">
+                        		<option>----请选择面试信息----</option>
+                        	</select>
                         </div> 
-                       <!--  <div class=col-lg-10">
-                        	<select id="staff_name" ></select>
-                        </div> -->
                     </div>
                      <div class="form-group">
                         <label class="col-lg-2 control-label" for="focusedInput">时间</label>
                         <div class="col-lg-10">
-                            <input class="form-control"  id="interview_date" type="date" placeholder="请输入日期">
+                            <input class="form-control"  id="interview_date" type="date"
+                            		onclick="getDate()">
                         </div>
                     </div>
                     <div class="form-group">
@@ -105,8 +109,6 @@
     </div>
     </div>
 </div>
-
-
 
 
 </body>

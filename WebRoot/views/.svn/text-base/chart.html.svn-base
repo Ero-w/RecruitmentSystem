@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="/rs/resources/css/style.css">
-
     <!-- Bootstrap Admin Theme -->
     <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+    <link rel="stylesheet" media="screen" href="/rs/resources/css/chartLayout.css">
   </head>
   <body>
   <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
@@ -26,11 +26,13 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse">
       <ul class="nav navbar-nav">
-            <li ><a href="addPosition.html">职位管理</a></li>
-            <li><a href="addText.html">题库管理</a></li>
-            <li><a href="authority.html">权限管理</a></li>
-            <li class="active"><a href="#">报表统计</a></li>
-            <li ><a href="personCenter_admin.html">个人中心</a></li>
+	      <li><a href="addPosition.html">职位管理</a></li>
+	      <li><a href="department.html">部门管理</a></li>
+	      <li><a href="addText.html">题库管理</a></li>
+	      <li><a href="resumeManager.html" >简历管理</a></li>
+	      <li><a href="authority.html">权限管理</a></li>
+	      <li class="active"><a href="chart.html">报表统计</a></li>
+	      <li><a href="personCenter_admin.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/demo/user/register">注册</a></li>
@@ -40,52 +42,32 @@
   </div>
 </header>
     <!--头部导航-->
-<div class="bs-docs-header" id="content" style="height:1px;padding:0;background:#428bca">
+<div class="bs-docs-header" id="content">
 </div>
 
 <div class="container">
     <!-- left, vertical navbar & content -->
     <div class="row">
-		
-      
                 <br>
                 <br>
         		<br>
         <div class="col-lg-12">
-              <div class="search_wrap" style="position:absolute;top:-40px;left:-135px;">
-                <!--  --><select class="form-control" style="width: 150px;display: inline-block;margin-left:150px" id="realName">
-                    <option data-target="#staff">人员表</option>
-                    <option data-target="#resume" selected>简历表</option>
-                    <option data-target="#question">问题表</option>
+              <div class="search_wrap">
+                <!--  --><select class="form-control" id="realName">
+                    <option data-target="#Staff" selected>人员表</option>
+                    <option data-target="#Resume">简历表</option>
+                    <option data-target="#Question">问题表</option>
                 </select>
                 <button class="btn btn-info" id="btn">搜索</button>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="text-muted bootstrap-admin-box-title">报表信息</div>
+                    <div id="title" class="text-muted bootstrap-admin-box-title">报表信息</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-                  <div>
-                  	<table id="staff" class="table table-responsive table-bordered table-condensed" style="display:none;">
-                  		<thead>
-                  			<tr><th>姓名</th><th>性别</th><th>年龄</th><th>电话</th><th>邮箱</th></tr>
-                  		</thead>
-                  		<tbody></tbody>
-					</table>
-					<table id="resume" class="table table-responsive table-bordered table-condensed" style="display:none;">
-						<thead>
-							<tr><th>姓名</th><th>学历</th><th>专业技能</th></tr>
-						</thead>
-				  		<tbody></tbody>
-					</table>
-					<table id="question" class="table table-responsive table-bordered table-condensed" style="display:none;">
-						<thead>
-							<tr><th>标题</th><th>答案</th><th>难度</th></tr>
-						</thead>
-		  				<tbody></tbody>
-					</table>
-                  </div>
-                  <div><br/>这里放置扇形图信息</div>
+                  <div id="Staff">改变下拉框，点击搜索，查看报表信息。</div>
+                  <div id="Resume">改变下拉框，点击搜索，查看报表信息。</div>
+                  <div id="Question">改变下拉框，点击搜索，查看报表信息。</div>
                 </div>
             </div>
           </div>

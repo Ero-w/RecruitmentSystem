@@ -8,6 +8,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IInterviewDAO;
 import com.rs.model.Interview;
 
 /**
@@ -22,10 +23,10 @@ import com.rs.model.Interview;
  * @author MyEclipse Persistence Tools
  */
 
-public class InterviewDAO extends HibernateDaoSupport {
+public class InterviewDAO extends HibernateDaoSupport implements IInterviewDAO{
 	private static final Log log = LogFactory.getLog(InterviewDAO.class);
 	// property constants
-	public static final String DESC = "desc";
+	public static final String REMARK = "remark";
 	public static final String RANK = "rank";
 	public static final String PASS = "pass";
 	public static final String EVALUATE = "evaluate";
@@ -94,8 +95,8 @@ public class InterviewDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByDesc(Object desc) {
-		return findByProperty(DESC, desc);
+	public List findByRemark(Object remark) {
+		return findByProperty(REMARK, remark);
 	}
 
 	public List findByRank(Object rank) {

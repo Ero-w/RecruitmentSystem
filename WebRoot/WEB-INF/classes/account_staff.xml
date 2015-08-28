@@ -55,7 +55,13 @@
 	<package name="account_staff_api" extends="json-default" namespace="/">
 	<!-- name 最好有自己的前缀，避免与别人的路由文件冲突，会报NoSuchMethodException  -->
 	<!-- *表示通配符，{1}表示第一个通配符代表的字符串。   例如，访问/as_login  会调用 login方法，因为这时候 *={1}=login -->
-		<action name="as_*" class="accountapi" method="{1}">
+		<action name="as_*" class="com.rs.action.api.AccountStaffAPI" method="{1}">
+			<result type="json">
+			<param name="root">map</param>
+			</result>
+		</action>
+		
+		<action name="authority_*" class="com.rs.action.api.AuthorityStaffAPI" method="{1}">
 			<result type="json">
 			<param name="root">map</param>
 			</result>

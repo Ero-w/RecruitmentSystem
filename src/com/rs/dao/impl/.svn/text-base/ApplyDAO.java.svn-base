@@ -8,6 +8,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IApplyDAO;
 import com.rs.model.Apply;
 
 /**
@@ -22,7 +23,7 @@ import com.rs.model.Apply;
  * @author MyEclipse Persistence Tools
  */
 
-public class ApplyDAO extends HibernateDaoSupport {
+public class ApplyDAO extends HibernateDaoSupport implements IApplyDAO{
 	private static final Log log = LogFactory.getLog(ApplyDAO.class);
 
 	// property constants
@@ -131,7 +132,7 @@ public class ApplyDAO extends HibernateDaoSupport {
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
-		} catch (RuntimeException re) {
+		}catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
 		}

@@ -8,6 +8,20 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+  <filter>
+      <filter-name>hibernateLazyFilter</filter-name>
+      <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+  </filter>
+  
+  
+  <filter-mapping>
+      <filter-name>hibernateLazyFilter</filter-name>
+      <url-pattern>/authority_readAllStaff</url-pattern>
+      <url-pattern>/re_readAllResume</url-pattern>
+      <url-pattern>/qu_readAllQuestion</url-pattern>
+  </filter-mapping>
+
   <filter>
   	<filter-name>struts2</filter-name>
   	<filter-class>

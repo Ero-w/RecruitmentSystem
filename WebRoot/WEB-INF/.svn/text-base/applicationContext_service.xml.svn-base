@@ -4,14 +4,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-
-
-    <bean id="accountService" class="com.rs.service.impl.AccountService">
+	
+	
+	<bean id="accountService" class="com.rs.service.impl.AccountService">
 		<property name="accountDAO">
 			<ref bean="AccountDAO" />
 		</property>
 	</bean>	
+
+	 <bean id="staffService" class="com.rs.service.impl.StaffService">
+		<property name="staffDAO">
+			<ref bean="StaffDAO" />
+		</property>
+	</bean>
 	
+	
+	
+	<!-- cyf -->
+	<bean id="departmentService" class="com.rs.service.impl.DepartmentService">
+		<property name="departmentDAO">
+			<ref bean="DepartmentDAO" />
+		</property>
+	</bean>
+	
+	<bean id="positionService" class="com.rs.service.impl.PositionService">
+		<property name="positionDAO">
+			<ref bean="PositionDAO" />
+		</property>
+		<property name="departmentService">
+			<ref bean="departmentService" />
+		</property>
+	</bean>
+
 	
 	 <bean id="interviewService" class="com.rs.service.impl.InterviewService">
 		<property name="interviewDAO">
@@ -19,5 +43,29 @@
 		</property>		
 	</bean> 
 	
+	<bean id="resumeService" class="com.rs.service.impl.ResumeService">
+		<property name="resumeDAO">
+			<ref bean="ResumeDAO"/>
+		</property>
+		<property name="staffDAO">
+			<ref bean="StaffDAO"/>
+		</property>		
+		<property name="applyDAO">
+			<ref bean="ApplyDAO"/>
+		</property>	
+	</bean> 
 	
+	<bean id="authorityService" class="com.rs.service.impl.AuthorityService">
+		<property name="staffDAO">
+			<ref bean="StaffDAO"/>
+		</property>
+	</bean>
+
+	<bean id="QuestionService" class="com.rs.service.impl.QuestionService">
+		<property name="questionDAO">
+			<ref bean="QuestionDAO" />
+		</property>
+	</bean>
+
 </beans>
+

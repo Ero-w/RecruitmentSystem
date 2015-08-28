@@ -16,7 +16,7 @@
         <many-to-one name="position" class="com.rs.model.Position" fetch="select"  lazy="false">
             <column name="pid" />
         </many-to-one>
-        <set name="interviews" inverse="true">
+        <set name="interviews" inverse="true" lazy="false">
             <key>
                 <column name="apid" />
             </key>

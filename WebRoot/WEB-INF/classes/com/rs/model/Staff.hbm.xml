@@ -31,7 +31,7 @@
         <property name="age" type="java.lang.Integer">
             <column name="age" not-null="true" />
         </property>
-        <set name="interviews" inverse="true">
+        <set name="interviews" inverse="true" lazy="false">
             <key>
                 <column name="interviewerId" />
             </key>
@@ -43,7 +43,7 @@
             </key>
             <one-to-many class="com.rs.model.Question" />
         </set>
-        <set name="applies" inverse="true">
+        <set name="applies" inverse="true" lazy="false">
             <key>
                 <column name="sid" />
             </key>

@@ -60,6 +60,12 @@
 			<param name="root">map</param>
 			</result>
 		</action>
+		
+		<action name="authority_*" class="com.rs.action.api.AuthorityStaffAPI" method="{1}">
+			<result type="json">
+			<param name="root">map</param>
+			</result>
+		</action>
     </package>
 
 </struts>    

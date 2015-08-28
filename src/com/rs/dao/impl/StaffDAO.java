@@ -8,6 +8,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IStaffDAO;
 import com.rs.model.Staff;
 
 /**
@@ -22,7 +23,7 @@ import com.rs.model.Staff;
  * @author MyEclipse Persistence Tools
  */
 
-public class StaffDAO extends HibernateDaoSupport {
+public class StaffDAO extends HibernateDaoSupport implements IStaffDAO{
 	private static final Log log = LogFactory.getLog(StaffDAO.class);
 	// property constants
 	public static final String SNAME = "sname";
@@ -58,7 +59,7 @@ public class StaffDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Staff findById(java.lang.Integer id) {
+	public Staff findById(java.lang.Integer id) {		
 		log.debug("getting Staff instance with id: " + id);
 		try {
 			Staff instance = (Staff) getHibernateTemplate().get(

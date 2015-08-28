@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 145
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js
 END
 tbody.js
 K 25
 svn:wc:ra_dav:version-url
 V 154
-/svn/huanan_2/!svn/ver/544/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/tbody.js
+/svn/huanan_2/!svn/ver/777/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/tbody.js
 END
 jquery-1.8.2.min.js
 K 25
@@ -27,11 +27,17 @@ svn:wc:ra_dav:version-url
 V 155
 /svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/juicer.js
 END
+department.js
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/huanan_2/!svn/ver/706/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/department.js
+END
 interview_interviewer.js
 K 25
 svn:wc:ra_dav:version-url
 V 170
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/interview_interviewer.js
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/interview_interviewer.js
 END
 bootstrap.js
 K 25
@@ -39,17 +45,41 @@ svn:wc:ra_dav:version-url
 V 158
 /svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/bootstrap.js
 END
+resume.js
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/huanan_2/!svn/ver/712/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/resume.js
+END
 html5shiv.js
 K 25
 svn:wc:ra_dav:version-url
 V 158
 /svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/html5shiv.js
 END
+addPosition.js
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/huanan_2/!svn/ver/706/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/addPosition.js
+END
 login.js
 K 25
 svn:wc:ra_dav:version-url
 V 154
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/login.js
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/login.js
+END
+interview_user.js
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/interview_user.js
+END
+authority.js
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/huanan_2/!svn/ver/590/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/authority.js
 END
 jquery.min.js
 K 25
@@ -61,7 +91,7 @@ addInterview.js
 K 25
 svn:wc:ra_dav:version-url
 V 161
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/addInterview.js
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/addInterview.js
 END
 DT_bootstrap.js
 K 25
@@ -97,7 +127,7 @@ scoreManager.js
 K 25
 svn:wc:ra_dav:version-url
 V 161
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/scoreManager.js
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/resources/js/scoreManager.js
 END
 respond.min.js
 K 25

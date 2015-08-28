@@ -7,13 +7,13 @@ position.xml
 K 25
 svn:wc:ra_dav:version-url
 V 161
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/position.xml
+/svn/huanan_2/!svn/ver/717/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/position.xml
 END
 resume.xml
 K 25
 svn:wc:ra_dav:version-url
 V 159
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/resume.xml
+/svn/huanan_2/!svn/ver/717/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/resume.xml
 END
 apply.xml
 K 25
@@ -25,19 +25,19 @@ account_staff.xml
 K 25
 svn:wc:ra_dav:version-url
 V 166
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/account_staff.xml
+/svn/huanan_2/!svn/ver/717/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/account_staff.xml
 END
 interview.xml
 K 25
 svn:wc:ra_dav:version-url
 V 162
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/interview.xml
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/interview.xml
 END
 department.xml
 K 25
 svn:wc:ra_dav:version-url
 V 163
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/department.xml
+/svn/huanan_2/!svn/ver/717/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/WEB-INF/classes/department.xml
 END
 struts.xml
 K 25

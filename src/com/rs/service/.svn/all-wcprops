@@ -1,7 +1,49 @@
 K 25
 svn:wc:ra_dav:version-url
 V 143
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service
+END
+IApplyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IApplyService.java
+END
+IResumeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/huanan_2/!svn/ver/742/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IResumeService.java
+END
+IStaffService.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/huanan_2/!svn/ver/571/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IStaffService.java
+END
+IInterviewService.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IInterviewService.java
+END
+IAuthorityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/huanan_2/!svn/ver/588/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IAuthorityService.java
+END
+IDepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/huanan_2/!svn/ver/703/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IDepartmentService.java
+END
+IPositionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/huanan_2/!svn/ver/703/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/service/IPositionService.java
 END
 IAccountService.java
 K 25

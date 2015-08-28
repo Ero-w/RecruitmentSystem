@@ -14,7 +14,7 @@ public class Interview implements java.io.Serializable {
 	private Staff staff;
 	private Apply apply;
 	private Date time;
-	private String desc;
+	private String remark;
 	private String rank;
 	private Integer pass;
 	private String evaluate;
@@ -26,12 +26,12 @@ public class Interview implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Interview(Staff staff, Apply apply, Date time, String desc,
+	public Interview(Staff staff, Apply apply, Date time, String remark,
 			String rank, Integer pass, String evaluate) {
 		this.staff = staff;
 		this.apply = apply;
 		this.time = time;
-		this.desc = desc;
+		this.remark = remark;
 		this.rank = rank;
 		this.pass = pass;
 		this.evaluate = evaluate;
@@ -71,12 +71,12 @@ public class Interview implements java.io.Serializable {
 		this.time = time;
 	}
 
-	public String getDesc() {
-		return this.desc;
+	public String getRemark() {
+		return this.remark;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public String getRank() {

@@ -26,10 +26,11 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-            <li><a href="addInterview.html">面试管理</a></li>
-            <li class="active"><a href="#">题库管理</a></li>
-            <li><a href="scoreManager.html">评分管理</a></li>
-            <li><a href="personCenter_interviewer.html">个人中心</a></li>
+      	<li><a href="addInterview.html">面试管理</a></li>
+        <li class="active"><a href="addText_interview.html">题库管理</a></li>
+        <li><a href="scoreManager.html">评分管理</a></li>
+        <li><a href="resumeInterview.html" >简历管理</a></li>
+        <li><a href="personCenter_interviewer.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register.html">注册</a></li>
@@ -64,21 +65,21 @@
 		                    <legend>添加题目</legend>
 		            
 		                    <div class="form-group">
-		                        <label class="col-lg-2 control-label" for="focusedInput">题目</label>
+		                        <label class="col-lg-2 control-label" for="focusedInput" >题目</label>
 		                        <div class="col-lg-10">
-		                            <textarea class="form-control"  id="name" type="text" placeholder="请输入题目" style="height:200px;"></textarea>
+		                            <textarea class="form-control"  id="title" type="text" placeholder="请输入题目" style="height:200px;"></textarea>
 		                        </div>
 		                    </div>
 		          
 		                    <div class="form-group">
 		                        <label class="col-lg-2 control-label" for="focusedInput">答案</label>
 		                        <div class="col-lg-10">
-		                            <textarea class="form-control" id= "remark" type="text" placeholder="请输入题目答案" ></textarea> 
+		                            <textarea class="form-control" id="answer" type="text" placeholder="请输入题目答案" ></textarea> 
 		                        </div>
 		                    </div>
 		                    
 		                   
-		                    <button type="button" class="col-lg-offset-2 btn btn-primary" id="loginbtn">提交</button>
+		                    <button type="button" class="col-lg-offset-2 btn btn-primary" id="loginbtn" onclick="ajaxHandIn()">提交</button>
 		                    <button type="reset" class="btn btn-default">重置</button>
 		                </fieldset>
 		            </form>
@@ -99,10 +100,10 @@
 	                    </div>
 	                    <br>
 	                    <br>
-	                    <button type="button" class="btn btn-danger">删除</button>
+	                    <button type="button" class="btn btn-danger" onclick="deleteSelected()">删除</button>
 	                    <button type="button" class="btn btn-default">保存全部</button>
 	                    <table class="table bootstrap-admin-table-with-actions">
-	
+				<!-- 我的问题 -->
 	                        <thead>
 	                        <tr>
 	                        	<th>选择</th>
@@ -161,21 +162,20 @@
 	                    </div>
 	                    <br>
 	                    <br>
-	                    <button type="button" class="btn btn-danger">删除</button>
-	                    <button type="button" class="btn btn-default">保存全部</button>
+	                    <button type="button" class="btn btn-danger" id="delete">删除</button>
+	                    <button type="button" class="btn btn-default" id="saveall">保存全部</button>
 	                    <table class="table bootstrap-admin-table-with-actions">
-	
+				<!--所有问题 -->
 	                        <thead>
 	                        <tr>
 	                        	<th>选择</th>
 	                            <th>题号</th>
 	                            <th>题目内容</th>
-	                            <th>答案</th>
-	                            <th>操作</th>                          
+	                            <th>答案</th>	                                         
 	                        </tr>
 	                        </thead>
-	                        <tbody id="tbody">
-	                        <tr>
+	                        <tbody id="tbody1">
+	                        <!--  <tr>
 	                            <td><input type="checkbox" class="checkbox"></td>   
 	                            <td>998</td>
 	                            <td>什么是 Servlet？</td>
@@ -198,7 +198,7 @@
 	                            <td>                                
 	                               <button  class="btn btn-primary"><span class="glyphicon glyphicon-eye-open">查看详情</span></button>
 	                            </td>
-	                        </tr>	                        
+	                        </tr>	      -->                  
 	                        </tbody>
 	                    </table>
 	                </fieldset>
@@ -277,13 +277,67 @@
             myText.setAttribute("style","display:none;");
             addText.setAttribute("style","display:none;");
             allText.setAttribute("style","display:block;");
+            document.getElementById("delete").setAttribute("style","display:none");
+            document.getElementById("saveall").setAttribute("style","display:none");
+            ajaxCheckQuestion();
+                 
         }else if(myname == "myText"){
             document.getElementsByName("allText")[0].setAttribute("class","");
             document.getElementsByName("addText")[0].setAttribute("class","");
             allText.setAttribute("style","display:none;");
             addText.setAttribute("style","display:none;");
-           myText.setAttribute("style","display:block;");
+          	 myText.setAttribute("style","display:block;");
+           document.getElementById("delete").setAttribute("style","display:inline-block");
+            document.getElementById("saveall").setAttribute("style","display:inline-block");
         }
+    }
+    //取得所有问题
+    function checkQuestion(qt){
+			var question=qt;
+            var tb=document.getElementById("tbody1");
+            while(tb.hasChildNodes())tb.removeChild(tb.firstChild);
+            for(var i=0;i<question.length;i++){
+            var tr=document.createElement("tr");
+            var td=document.createElement("td");
+            var checkbox=document.createElement("input");
+            checkbox.setAttribute("class","checkbox");
+            checkbox.setAttribute("type","checkbox")
+            td.appendChild(checkbox);
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][0];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][1];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][2];
+            td.setAttribute("width","400px");
+            tr.appendChild(td);
+         	td=document.createElement("td");
+         	tr.appendChild(td);
+            tb.appendChild(tr);
+		}
+	}
+    function callbackCheck(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                var question=eval(xmlDoc);
+                checkQuestion(question);
+            }
+        }
+    }
+    function ajaxCheckQuestion(){
+        var url="/rs/qu_check";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackCheck;
+        xmlHttp.send();
     }
     //向弹窗添加内容
     var pop_tr=null;//记录tr方便回写到table上
@@ -316,9 +370,33 @@
             }else{
               tds[i].innerText = textareas[i-2].value;
             }
-            
         }
     }
+    //提交新增问题
+    function callbackAdd(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                if(xmlDoc="ok")alert("添加成功")
+                else alert("添加失败")
+            }
+        }
+    }
+	function ajaxHandIn(){
+		var url="/rs/add";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        var title=document.getElementById("title").value
+        var answer=document.getElementById("answer").value;
+        var x="title="+title+"&answer="+answer;
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackAdd;
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send(x);
+	}
     </script>
 <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
 <script src="/rs/resources/js/bootstrap.js"></script>

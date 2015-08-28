@@ -1,55 +1,73 @@
 K 25
 svn:wc:ra_dav:version-url
 V 138
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views
 END
 personCenter_interviewer.html
 K 25
 svn:wc:ra_dav:version-url
 V 168
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/personCenter_interviewer.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/personCenter_interviewer.html
+END
+resumeInterview.html
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/resumeInterview.html
 END
 department.html
 K 25
 svn:wc:ra_dav:version-url
 V 154
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/department.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/department.html
+END
+addText.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText.jsp
 END
 addText_interview.html
 K 25
 svn:wc:ra_dav:version-url
 V 161
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText_interview.html
+/svn/huanan_2/!svn/ver/786/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText_interview.html
 END
 interView_interviewer.html
 K 25
 svn:wc:ra_dav:version-url
 V 165
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/interView_interviewer.html
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/interView_interviewer.html
+END
+addText_interview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/huanan_2/!svn/ver/781/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText_interview.jsp
 END
 admin.html
 K 25
 svn:wc:ra_dav:version-url
 V 149
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/admin.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/admin.html
 END
 addText.html
 K 25
 svn:wc:ra_dav:version-url
 V 151
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText.html
+/svn/huanan_2/!svn/ver/786/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addText.html
 END
 resume.html
 K 25
 svn:wc:ra_dav:version-url
 V 150
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/resume.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/resume.html
 END
 addPosition.html
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addPosition.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addPosition.html
 END
 login.html
 K 25
@@ -61,7 +79,7 @@ interView_user.html
 K 25
 svn:wc:ra_dav:version-url
 V 158
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/interView_user.html
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/interView_user.html
 END
 register.html
 K 25
@@ -73,13 +91,13 @@ authority.html
 K 25
 svn:wc:ra_dav:version-url
 V 153
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/authority.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/authority.html
 END
 addInterview.html
 K 25
 svn:wc:ra_dav:version-url
 V 156
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addInterview.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/addInterview.html
 END
 personCenter_user.html
 K 25
@@ -87,21 +105,27 @@ svn:wc:ra_dav:version-url
 V 161
 /svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/personCenter_user.html
 END
+resumeManager.html
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/resumeManager.html
+END
 chart.html
 K 25
 svn:wc:ra_dav:version-url
 V 149
-/svn/huanan_2/!svn/ver/544/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/chart.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/chart.html
 END
 scoreManager.html
 K 25
 svn:wc:ra_dav:version-url
 V 156
-/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/scoreManager.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/scoreManager.html
 END
 personCenter_admin.html
 K 25
 svn:wc:ra_dav:version-url
 V 162
-/svn/huanan_2/!svn/ver/542/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/personCenter_admin.html
+/svn/huanan_2/!svn/ver/776/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/WebRoot/views/personCenter_admin.html
 END

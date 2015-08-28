@@ -26,12 +26,13 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-                        <li><a href="addPosition.html">职位管理</a></li>
-                        <li><a href="department.html">部门管理</a></li>
-                        <li class="active"><a href="addText.html">题库管理</a></li>
-                        <li><a href="authority.html">权限管理</a></li>
-                        <li><a href="chart.html">报表统计</a></li>
-                        <li><a href="personCenter_admin.html">个人中心</a></li>
+      	<li><a href="addPosition.html">职位管理</a></li>
+		<li><a href="department.html">部门管理</a></li>
+		<li class="active"><a href="addText.html">题库管理</a></li>
+		<li><a href="resumeManager.html" >简历管理</a></li>
+		<li><a href="#">权限管理</a></li>
+		<li><a href="chart.html">报表统计</a></li>
+		<li><a href="personCenter_admin.html">个人中心</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register.html">注册</a></li>
@@ -50,14 +51,20 @@
     
         <div class="col-md-12 bootstrap-admin-col-left">
             <ul class="nav nav-pills pull-left">
-                <li class="active" name="addText" onclick="changeView(this)"><a href="#addText" >添加题目</a></li>
+                <li name="addText" onclick="changeView(this)"><a href="#addText" >添加题目</a></li>
                 <li name="allText" onclick="changeView(this)"><a href="#allText" >查看题目</a></li>
             </ul>
         </div>
         <br>
         <br>
 		<br>
-        <div class="col-md-12" id="addText">
+			<!--
+            	作者：79250013@qq.com
+            	时间：2015-08-19
+            	描述：增加问题
+            -->
+        <div class="col-md-12" id="addText" style="display:none;">
+
             <div class="panel panel-default bootstrap-admin-no-table-panel">
 	            <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
 		            <form class="form-horizontal">
@@ -79,7 +86,7 @@
 		                    </div>
 		                    
 		                   
-		                    <button type="button" class="col-lg-offset-2 btn btn-primary" id="loginbtn">提交</button>
+		                    <button type="button" class="col-lg-offset-2 btn btn-primary" id="loginbtn" onclick="ajaxHandIn()">提交</button>
 		                    <button type="reset" class="btn btn-default">重置</button>
 		                </fieldset>
 		            </form>
@@ -100,8 +107,8 @@
 	                    </div>
 	                    <br>
 	                    <br>
-	                    <button type="button" class="btn btn-danger">删除</button>
-	                    <button type="button" class="btn btn-default">保存全部</button>
+	                    <button type="button" class="btn btn-danger" onclick="deleteSelected()">删除</button>
+	                    <button type="button" class="btn btn-default" onclick="saveQuestion()">保存全部</button>
 	                    <table class="table bootstrap-admin-table-with-actions">
 	
 	                        <thead>
@@ -113,8 +120,13 @@
 	                            <th>操作</th>                          
 	                        </tr>
 	                        </thead>
+	                        <!--
+                            	作者：79250013@qq.com
+                            	时间：2015-08-19
+                            	描述：显示所有问题
+                            -->
 	                        <tbody id="tbody">
-	                        <tr>
+	                           <!--<tr>
 	                            <td><input type="checkbox" class="checkbox"></td>   
 	                            <td>998</td>
 	                            <td>什么是 Servlet？</td>
@@ -141,7 +153,7 @@
 	                        data-toggle="modal" data-backdrop="static" 
 	                        data-target="#modify" onclick="fixPop(this)"><span class="glyphicon glyphicon-edit">修改</span></button>
 	                            </td>
-	                        </tr>	                        
+	                        </tr>	      -->
 	                        </tbody>
 	                    </table>
 	                </fieldset>
@@ -150,7 +162,11 @@
    	 	</div>	 	   	 	
   	</div>
 </div>
-
+	<!--
+    	作者：79250013@qq.com
+    	时间：2015-08-19
+    	描述：模态框
+    -->
 	<div id="modify" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -167,7 +183,8 @@
                         <div class="form-group">
                             <label for="title1" class="control-label col-md-2">题号</label>
                             <div class="col-md-10">
-                                <input type="text" id="title1" class="form-control" />
+                                <input type="text" id="" class="form-control" disabled="true"/>
+
                             </div>
                         </div>
 
@@ -202,6 +219,85 @@
 
 </body>
 <script type="text/javascript">
+	
+	//删除选中问题
+	function deleteSelected(){
+		var tb=document.getElementById("tbody");
+		var selected=tbody.getElementsByTagName("input");
+		var todelete=new Array();
+		for(var start=0,max=selected.length,count=0;start<max;start++){
+			if(selected[start].checked==true){
+				var tr=selected[start].parentElement.parentElement;
+				todelete[count]=tr;
+				count++;
+			}
+		}
+		for(var i=0,end=count;i<end;i++){
+			tb.removeChild(todelete[i]);
+		}
+	}
+	//修改及删除操作保存到数据库
+	function callbackSave(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                if(xmlDoc="ok")alert("保存成功")
+                else alert("保存失败")
+            }
+        }
+    }
+	function ajaxSaveQuestion(dt){
+		var url="/rs/save";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        var x="question="+dt;
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackSave;
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send(x);
+	}
+	function saveQuestion(){
+		var tr=tbody.getElementsByTagName("tr");
+		var toSave=new Array();
+		for(var i=0;i<tr.length;i++){
+			toSave[i]=new Array();
+			for(var j=0;j<3;j++){
+				toSave[i][j]=1;
+			}
+		}
+		for(var i=0,end=tr.length;i<end;i++){
+			toSave[i][0]=tr[i].childNodes[1].innerText;
+			toSave[i][1]=tr[i].childNodes[2].innerText;
+			toSave[i][2]=tr[i].childNodes[3].innerText;
+		}
+		var str=arrayToJson(toSave);
+		ajaxSaveQuestion(str);
+		
+	}
+	function arrayToJson(o) {   
+    var r = [];   
+    if (typeof o == "string") return "\"" + o.replace(/([\'\"\\])/g, "\\$1").replace(/(\n)/g, "\\n").replace(/(\r)/g, "\\r").replace(/(\t)/g, "\\t") + "\"";   
+    if (typeof o == "object") {   
+    if (!o.sort) {   
+    for (var i in o)   
+    r.push(i + ":" + arrayToJson(o[i]));   
+    if (!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {   
+    r.push("toString:" + o.toString.toString());   
+    }   
+    r = "{" + r.join() + "}";   
+    } else {   
+    for (var i = 0; i < o.length; i++) {   
+    r.push(arrayToJson(o[i]));   
+    }   
+    r = "[" + r.join() + "]";   
+    }   
+    return r;   
+    }   
+    return o.toString();   
+    }  
    //添加和查看按钮的切换
     function changeView(which){
         var myname =which.getAttribute("name");
@@ -217,8 +313,10 @@
             checkeds[0].setAttribute("class","");
             addText.setAttribute("style","display:none;");
             allText.setAttribute("style","display:block;");
+            ajaxCheckQuestion();
+            
+            }
         }
-    }
     //向弹窗添加内容
     var pop_tr=null;//记录tr方便回写到table上
     function fixPop(which){
@@ -227,17 +325,13 @@
         var inputs = modify.getElementsByTagName("input");
         var textareas = modify.getElementsByTagName("textarea");
         pop_tr = tr;//记录是哪一行修改了
-
         for(var i=1;i<tds.length-1;i++){
             if(i == 1){//第一个input
                 inputs[0].value = tds[i].innerText;
                 continue;
             }
             textareas[i-2].value = tds[i].innerText;
-            
-           
         }
-
     }
     //把弹窗内的信息回写到table上
     function save2table(){
@@ -253,7 +347,93 @@
             
         }
     }
+    //取得所有问题
+    function checkQuestion(qt){
+			var question=qt;
+            var tb=document.getElementById("tbody");
+            while(tb.hasChildNodes())tb.removeChild(tb.firstChild);
+            for(var i=0;i<question.length;i++){
+            var tr=document.createElement("tr");
+            var td=document.createElement("td");
+            var checkbox=document.createElement("input");
+            checkbox.setAttribute("class","checkbox");
+            checkbox.setAttribute("type","checkbox")
+            td.appendChild(checkbox);
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][0];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][1];
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.innerText=question[i][2];
+            td.setAttribute("width","400px");
+            tr.appendChild(td);
+         	td=document.createElement("td");
+         	var button=document.createElement("button");
+         	button.setAttribute("class","btn btn-primary");
+         	button.setAttribute("onclick","fixPop(this)");
+         	button.setAttribute("data-toggle","modal");
+         	button.setAttribute("data-backdrop","static");
+         	button.setAttribute("data-target","#modify");
+         	var span=document.createElement("span");
+         	span.setAttribute("class","glyphicon glyphicon-edit");
+         	span.innerText="修改"
+         	button.appendChild(span);
+         	td.appendChild(button);
+         	tr.appendChild(td);
+            tb.appendChild(tr);
+		}
+	}
+    function callbackCheck(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                var question=eval(xmlDoc);
+                checkQuestion(question);
+            }
+        }
+    }
+    function ajaxCheckQuestion(){
+        var url="/rs/qu_check";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackCheck;
+        xmlHttp.send();
+    }
+    //提交新增问题
+    function callbackAdd(){
+        if(xmlHttp.readyState==4){
+            if(xmlHttp.status==200){
+                var xmlDoc=xmlHttp.responseText;
+                if(xmlDoc="ok")alert("添加成功")
+                else alert("添加失败")
+            }
+        }
+    }
+	function ajaxHandIn(){
+		var url="/rs/add";
+        if(window.XMLHttpRequest){
+            xmlHttp=new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        var title=document.getElementById("title").value
+        var answer=document.getElementById("answer").value;
+        var x="title="+title+"&answer="+answer;
+        xmlHttp.open("POST",url,true);
+        xmlHttp.onreadystatechange=callbackAdd;
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send(x);
+	}
     </script>
+
 <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
 <script src="/rs/resources/js/bootstrap.js"></script>
+
 </html>

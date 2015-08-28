@@ -10,8 +10,12 @@
 
     <!-- Bootstrap Admin Theme -->
     <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
+    
+       
+       <script type="text/javascript" src="/rs/resources/js/interview_user.js"></script>
+    
   </head>
-  <body>
+  <body onload="showAllPosition()">
   <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
     <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="container">
@@ -46,8 +50,8 @@
     <div class="row">
         <div class="col-md-12 bootstrap-admin-col-left">
             <ul class="nav nav-pills pull-left">
-                <li class="active" name="add" onclick="changeView(this)">
-                    <a href="#add">求职中心</a>
+                <li class="active" name="add" onclick="changeView(this)" >
+                    <a href="#add" onload="showAllPosition()" >求职中心</a>
                 </li>
                 <li name="check" onclick="changeView(this)">
                     <a href="#check">面试记录</a>
@@ -59,13 +63,13 @@
     <br>
     <br>
 
-        <div class="col-md-12" id="add">
+        <div class="col-md-12" id="add" >
             <div class="panel panel-default bootstrap-admin-no-table-panel">
                 <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" >
                         <fieldset>
                             <legend>所有岗位</legend>
-                            <table class="table">
+                            <table class="table" >
                                 <thead>
                                 <tr>
                                     <th>职位名称</th>
@@ -76,8 +80,8 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
+                                <tbody id="tbody_interview_user" >
+                                <!-- <tr>
                                     <td>C++攻城狮</td>
                                     <td>研发部门</td>
                                     <td>5</td>
@@ -86,7 +90,7 @@
                                     <td>
                                         <button type="button" class="btn btn-primary">申请</button>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 </tbody>
                             </table>
 
@@ -112,8 +116,8 @@
                             <th>录取情况</th>
                         </tr>
                         </thead>
-                        <tbody id="tbody">
- 						<tr>
+                        <tbody id="tbody_interview_record">
+ 						<!-- <tr>
                             <td class="num" data-id="$%{it.departmentId}">前端开发工程师</td>
                             <td class="name">2015-05-05</td>
                             <td class="name">已完成</td>
@@ -124,7 +128,7 @@
                             <td class="name">2015-08-05</td>
                             <td class="name">已完成</td>
                             <td>已录取</td>
-                        </tr>
+                        </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -148,13 +152,13 @@
             var checkeds = document.getElementsByName("check");
             checkeds[0].setAttribute("class","");
             check.setAttribute("style","display:none;");
-            add.setAttribute("style","display:block;");
-
+            add.setAttribute("style","display:block;");			
         }else if(myname=="check"){
             var checkeds = document.getElementsByName("add");
             checkeds[0].setAttribute("class","");
             add.setAttribute("style","display:none;");
             check.setAttribute("style","display:block;");
+            showAllRecord();//显示所有的面试记录
         }
     }
 </script>

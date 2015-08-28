@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 141
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model
+/svn/huanan_2/!svn/ver/737/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model
 END
 Department.hbm.xml
 K 25
@@ -19,7 +19,7 @@ Resume.java
 K 25
 svn:wc:ra_dav:version-url
 V 153
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Resume.java
+/svn/huanan_2/!svn/ver/737/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Resume.java
 END
 Account.java
 K 25
@@ -43,25 +43,25 @@ Staff.hbm.xml
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Staff.hbm.xml
-END
-Interview.hbm.xml
-K 25
-svn:wc:ra_dav:version-url
-V 159
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Interview.hbm.xml
+/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Staff.hbm.xml
 END
 Interview.java
 K 25
 svn:wc:ra_dav:version-url
 V 156
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Interview.java
+/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Interview.java
+END
+Interview.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Interview.hbm.xml
 END
 Staff.java
 K 25
 svn:wc:ra_dav:version-url
 V 152
-/svn/huanan_2/!svn/ver/484/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Staff.java
+/svn/huanan_2/!svn/ver/587/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Staff.java
 END
 Question.hbm.xml
 K 25
@@ -73,7 +73,7 @@ Position.hbm.xml
 K 25
 svn:wc:ra_dav:version-url
 V 158
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Position.hbm.xml
+/svn/huanan_2/!svn/ver/602/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Position.hbm.xml
 END
 Account.hbm.xml
 K 25
@@ -85,13 +85,13 @@ Resume.hbm.xml
 K 25
 svn:wc:ra_dav:version-url
 V 156
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Resume.hbm.xml
+/svn/huanan_2/!svn/ver/737/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Resume.hbm.xml
 END
 Apply.hbm.xml
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/huanan_2/!svn/ver/526/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Apply.hbm.xml
+/svn/huanan_2/!svn/ver/548/%E5%91%98%E5%B7%A5%E6%8B%9B%E8%81%98/trunk/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/RecruitmentSystem/src/com/rs/model/Apply.hbm.xml
 END
 Department.java
 K 25

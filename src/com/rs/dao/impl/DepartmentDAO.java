@@ -2,12 +2,14 @@ package com.rs.dao.impl;
 
 import java.util.List;
 import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IDepartmentDAO;
 import com.rs.model.Department;
 
 /**
@@ -22,7 +24,7 @@ import com.rs.model.Department;
  * @author MyEclipse Persistence Tools
  */
 
-public class DepartmentDAO extends HibernateDaoSupport {
+public class DepartmentDAO extends HibernateDaoSupport implements IDepartmentDAO{
 	private static final Log log = LogFactory.getLog(DepartmentDAO.class);
 	// property constants
 	public static final String DNAME = "dname";
@@ -33,26 +35,32 @@ public class DepartmentDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(Department transientInstance) {
+	public boolean save(Department transientInstance) {
+		boolean flag=false;
 		log.debug("saving Department instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			flag=true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
 			throw re;
 		}
+		return flag;
 	}
 
-	public void delete(Department persistentInstance) {
+	public boolean delete(Department persistentInstance) {
+		boolean flag=false;
 		log.debug("deleting Department instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			flag=true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
 			throw re;
 		}
+		return flag;
 	}
 
 	public Department findById(java.lang.Integer id) {

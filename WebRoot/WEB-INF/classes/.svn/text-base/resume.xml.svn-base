@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 
@@ -9,7 +9,7 @@
 	<package name="resume_api" extends="json-default" namespace="/">
 	<!-- name 最好有自己的前缀，避免与别人的路由文件冲突，会报NoSuchMethodException  -->
 	<!-- *表示通配符，{1}表示第一个通配符代表的字符串。   例如，访问/re_login  会调用 login方法，因为这时候 *={1}=login -->
-		<action name="re_*" class="" method="{1}">
+		<action name="re_*" class="resumeAPI" method="{1}">
 			<result type="json">
 			<param name="root">map</param>
 			</result>

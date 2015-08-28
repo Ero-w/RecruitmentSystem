@@ -105,6 +105,8 @@ public class AccountDAO extends HibernateDaoSupport implements IAccountDAO {
 			throw re;
 		}
 	}
+	
+	
 
 	public Account merge(Account detachedInstance) {
 		log.debug("merging Account instance");

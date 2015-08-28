@@ -16,6 +16,11 @@
         <property name="education" type="java.lang.String">
             <column name="education" length="500" />
         </property>
+        <property name="createDate" type="java.sql.Timestamp">
+            <column name="createDate" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
         <property name="experience" type="java.lang.String">
             <column name="experience" length="1000" />
         </property>

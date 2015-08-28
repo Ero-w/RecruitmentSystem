@@ -13,6 +13,7 @@
 
     <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
     <script src="/rs/resources/js/bootstrap.min.js"></script>
+    <script src="/rs/resources/js/department.js"></script>
     <script type="text/javascript">
         //添加和查看按钮的切换
         function changeView(which){
@@ -48,12 +49,13 @@
 		    </div>
 		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 		      <ul class="nav navbar-nav">
-                    <li><a href="addPosition.html">职位管理</a></li>
-                    <li class="active"><a href="#">部门管理</a></href></li>
-                    <li><a href="addText.html">题库管理</a></li>
-                    <li><a href="authority.html">权限管理</a></li>
-                    <li><a href="chart.html">报表统计</a></li>
-                    <li><a href="personCenter_admin.html">个人中心</a></li>
+                <li><a href="addPosition.html">职位管理</a></li>
+		        <li class="active"><a href="department.html">部门管理</a></li>
+		        <li><a href="addText.html">题库管理</a></li>
+		        <li><a href="resumeManager.html" >简历管理</a></li>
+		        <li><a href="#">权限管理</a></li>
+		        <li><a href="chart.html">报表统计</a></li>
+		        <li><a href="personCenter_admin.html">个人中心</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		            <li><a href="register.html">注册</a></li>
@@ -88,19 +90,15 @@
                             <legend>所有部门</legend>
                             <div class="deprtment-wrap">
                                 <table class="table">
-                                    <tbody>
                                     <tr>
                                         <th>部门编号</th>
                                         <th>部门名称</th>
+                                        <th>部门电话</th>
+                                        <th>部门地址</th>
                                         <th>操作</th>
                                     </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>研发部</td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger">删除</button>
-                                        </td>
-                                    </tr>
+                                    <tbody id="tbody">
+                                    <!-- 表格（从后台取数据） -->
                                     </tbody>
                                 </table>
                             </div>
@@ -116,13 +114,7 @@
 		            <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
 		                <fieldset>
 		                    <legend>添加部门</legend>
-		                    <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="dept-num" class="control-label col-lg-2">部门编号：</label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" id="dept-num" placeholder="请输入部门编号">
-                                    </div>
-                                </div>
+		                    <form class="form-horizontal" onsubmit="return false;">
                                 <div class="form-group">
                                     <label for="dept-name" class="control-label col-lg-2">部门名称：</label>
                                     <div class="col-lg-3">
@@ -130,8 +122,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="dept-tel" class="control-label col-lg-2">部门电话：</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="dept-tel" placeholder="请输入部门电话">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dept-address" class="control-label col-lg-2">部门地址：</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="dept-address" placeholder="请输入部门地址">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-lg-offset-2 col-lg-3">
-                                        <input type="submit" class="btn btn-primary" value="提交">
+                                        <input type="submit" class="btn btn-primary" value="提交" onclick="addDepartment()">
                                         <input type="reset" class="btn btn-primary" value="重置">
                                     </div>
                                 </div>

@@ -25,7 +25,7 @@
         <property name="requirement" type="java.lang.String">
             <column name="requirement" length="300" not-null="true" />
         </property>
-        <set name="applies" inverse="true">
+        <set name="applies" inverse="true" lazy="false">
             <key>
                 <column name="pid" />
             </key>

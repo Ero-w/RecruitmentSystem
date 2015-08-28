@@ -1,12 +1,14 @@
 package com.rs.dao.impl;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IResumeDAO;
 import com.rs.model.Resume;
 
 /**
@@ -21,7 +23,7 @@ import com.rs.model.Resume;
  * @author MyEclipse Persistence Tools
  */
 
-public class ResumeDAO extends HibernateDaoSupport {
+public class ResumeDAO extends HibernateDaoSupport implements IResumeDAO {
 	private static final Log log = LogFactory.getLog(ResumeDAO.class);
 	// property constants
 	public static final String EDUCATION = "education";
@@ -91,7 +93,20 @@ public class ResumeDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	//
+	public List findByStraffId(String propertyName, Object value) {
+		log.debug("finding Resume instance with property: " + propertyName
+				+ ", value: " + value);
+		try {
+			String queryString = "from Resume as model where model."
+					+ propertyName + ".sid= ?";
+			return getHibernateTemplate().find(queryString, value);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByEducation(Object education) {
 		return findByProperty(EDUCATION, education);
 	}

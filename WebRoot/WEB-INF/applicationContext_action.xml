@@ -6,8 +6,42 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
+
    <bean id="accountapi" class="com.rs.action.api.AccountStaffAPI" scope="prototype">
 		<property name="accountService" ref="accountService">
+		</property>
+		<property name="staffService" ref="staffService"/>
+	</bean> 
+
+	
+	<!-- cyf -->
+	<bean id="positionAPI" class="com.rs.action.api.PositionAPI" scope="prototype">
+		<property name="departmentService" ref="departmentService">
+		</property>
+		<property name="positionService" ref="positionService">
+		</property>
+	</bean>
+	<bean id="DepartmentAPI" class="com.rs.action.api.DepartmentAPI" scope="prototype">
+		<property name="departmentService" ref="departmentService">
+		</property>
+	</bean>
+
+	<bean id="InterviewAPI" class="com.rs.action.api.InterviewAPI" scope="prototype">
+	<!-- 	 <property name="interviewService" ref="interviewService"></property> -->	
+		<property name="staffDAO" >
+			<ref bean="StaffDAO"></ref>
+		</property>
+		<property name="applyDAO">
+			<ref bean="ApplyDAO"></ref>
+		</property>
+		<property name="interviewDAO">
+			<ref bean="InterviewDAO"></ref>
+		</property>
+		<property name="positionDAO">
+			<ref bean="PositionDAO"></ref>
+		</property>
+		<property name="departmentDAO">
+			<ref bean="DepartmentDAO"></ref>
 		</property>
 	</bean>
 	<bean id="check" class="com.rs.action.api.CheckQuestion" scope="prototype">
@@ -19,6 +53,16 @@
 	<bean id="saveInter" class="com.rs.action.api.SaveQuestion4Interview" scope="prototype">
 	</bean>
 	<bean id="checkInter" class="com.rs.action.api.CheckQuestion4Interview" scope="prototype">
+	</bean>
+
+	<bean id="questionAPI" class="com.rs.action.api.QuestionAPI" scope="prototype"> 
+		<property name="service" ref="QuestionService">
+		</property>
+	</bean>
+
+	<bean id="resumeAPI" class="com.rs.action.api.ResumeAPI" scope="prototype"> 
+		<property name="resumeService" ref="resumeService">
+		</property>
 	</bean>
 	
 </beans>

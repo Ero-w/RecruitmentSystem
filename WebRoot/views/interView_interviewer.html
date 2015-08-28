@@ -68,8 +68,8 @@
         		<br>
         <div class="col-lg-12">
             <div class="search_wrap" style="position:absolute;top:-40px;left:-135px;">
-                <!--  --><input type="text" class="form-control" style="width: 150px;display: inline-block;margin-left:150px" 
-                	placeholder="面试人" id="realName"  onkeydown="if(event.keyCode == 13){findInterviewer();}"/>
+                <input type="text" class="form-control" style="width: 150px;display: inline-block;margin-left:150px" 
+                	placeholder="面试人" id="realName"  onkeyup="findInterviewer()"/>
           
                 <button class="btn btn-info" id="" onclick="findInterviewer()">搜索</button>
             </div>
@@ -81,10 +81,10 @@
                     <table class="table bootstrap-admin-table-with-actions">
                         <thead>
                         <tr>
-                            <th>面试人</th>
+                            <th>面试人姓名</th>
+                            <th>面试岗位</th>
                             <th>面试时间</th>
-                            <th>操作</th>                   
-                            
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody id="tbody_interviewer">     

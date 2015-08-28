@@ -30,6 +30,13 @@ public class Staff implements java.io.Serializable {
 	/** default constructor */
 	public Staff() {
 	}
+	
+	public Staff(Integer sid,String sname,Department department,Integer priority){
+		this.sid=sid;
+		this.sname=sname;
+		this.priority=priority;
+		this.department=department;
+	}
 
 	/** minimal constructor */
 	public Staff(Department department, String sname, Integer priority,

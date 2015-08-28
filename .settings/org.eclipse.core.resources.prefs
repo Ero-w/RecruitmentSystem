@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//WebRoot/views/addText.jsp=UTF-8
 encoding//WebRoot/views/addText_interview.jsp=UTF-8
+encoding//src/com/rs/action/api/InterviewAPI.java=UTF-8

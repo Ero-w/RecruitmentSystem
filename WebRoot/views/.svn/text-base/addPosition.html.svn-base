@@ -10,83 +10,10 @@
 
     <!-- Bootstrap Admin Theme -->
     <link rel="stylesheet" media="screen" href="/rs/resources/css/bootstrap-admin-theme.css">
-
+   
      <script src="/rs/resources/js/jquery-1.8.2.min.js"></script>
     <script src="/rs/resources/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-   //添加和查看按钮的切换
-    function changeView(which){
-        var myname =which.getAttribute("name");
-        which.setAttribute("class","active");
-        if(myname=="add"){            
-            var checkeds = document.getElementsByName("check");
-            checkeds[0].setAttribute("class","");
-            check.setAttribute("style","display:none;");
-            add.setAttribute("style","display:block;");
-
-        }else if(myname=="check"){
-            var checkeds = document.getElementsByName("add");
-            checkeds[0].setAttribute("class","");
-            add.setAttribute("style","display:none;");
-            check.setAttribute("style","display:block;");
-        }
-    }
-    //向弹窗添加内容
-    var pop_tr=null;//记录tr方便回写到table上
-    function fixPop(which){
-        var tr = which.parentNode.parentNode;
-        var tds = tr.getElementsByTagName("td");
-        var inputs = popChange.getElementsByTagName("input");
-        var textareas = popChange.getElementsByTagName("textarea");
-        pop_tr = tr;//记录是哪一行修改了
-
-        for(var i=1;i<tds.length-1;i++){
-            if(i==tds.length-2){//最后一个textarea
-                textareas[0].value = tds[i].innerText;
-            }else{
-               inputs[i-1].value=tds[i].innerText;
-            }
-           
-        }
-
-    }
-    //把弹窗内的信息回写到table上
-    function save2table(){
-        var inputs = popChange.getElementsByTagName("input");
-        var textareas = popChange.getElementsByTagName("textarea");
-        var tds = pop_tr.getElementsByTagName("td");
-        for(var i = 1;i<tds.length-1;i++){
-            if(i==tds.length-2){
-                tds[i].innerText = textareas[0].value;
-            }else{
-              tds[i].innerText = inputs[i-1].value;
-            }
-            
-        }
-    }
-  //表单验证
-    function checkadd(){
-    	if($("#department").val()==""){
-    		alert("部门不能为空！");
-    	}
-    	else if($("#position").val()==""){
-    		alert("职位名称不能为空！");
-    	}
-    	else if($("#number").val()==""){
-    		alert("人数不能为空！");
-    	}
-    	else if(isNaN($("#number").val())){
-    		alert("人数需为数字！");
-    	}
-    	else if($("#date").val()==""){
-    		alert("截止日期不能为空！");
-    	}
-    	else if($("#departmentRequire").val()==""){
-    		alert("职位要求不能为空！");
-    	}
-    }
-    </script>
+    <script src="/rs/resources/js/addPosition.js"></script>
 
   </head>
   <body>
@@ -107,6 +34,7 @@
                 <li class="active"><a href="addPosition.html">职位管理</a></li>
                 <li><a href="department.html">部门管理</a></li>
                 <li><a href="addText.html">题库管理</a></li>
+                <li><a href="resumeManager.html" >简历管理</a></li>
                 <li ><a href="authority.html">权限管理</a></li>
                 <li ><a href="chart.html">报表统计</a></li>
                 <li  ><a href="personCenter_admin.html">个人中心</a></li>
@@ -152,7 +80,6 @@
 			                        <label class="col-lg-2 control-label" for="department">申请部门</label>
 			                        <div class="col-lg-10">
 			                            <select class="form-control" id="department" type="text" name="department" placeholder="请输入申请部门">
-			                            	<option>aa a </option>
 			                            </select>
 			                        </div>
 			                    </div>
@@ -203,19 +130,26 @@
 		                <fieldset>
 		                    <legend>查找职位:</legend>
 		                  
-		                    <div class="form-inline" style="margin:0 auto;">                    
-		                           <input type="text" class="form-control" placeholder="申请部门" name="position" size="30">
-		                           <input type="text" class="form-control" placeholder="人数" name="number" size="30">
-		                           <input type="date" class="form-control" name="date">
-		                           <input type="text" class="form-control" placeholder="职位" name="department" size="30">
-		                           <button  type="button" class="btn btn-primary">
-		                               <span class="glyphicon glyphicon-search"></span>
-		                           </button>
+		                    <div class="form-inline" style="margin:0 auto;">   
+		                    	<select class="form-control" id="search_way" name="search_way" onchange="changeWay(this)" style="float:left;margin-right:10px;">
+		                    		<option value="">部门/人数/截止日期/职位</option>
+		                    		<option value="1">按部门查询</option>
+		                    		<option value="2">按人数查询</option>
+		                    		<option value="3">按截止日期查询</option>
+		                    		<option value="4">按职位查询</option>
+		                    	</select>	                 
+	                           <div style="float:left;margin-right:10px" id="search_key" >
+	                           		<!-- 插入查询的关键字 -->
+	                           		<input type="text" class="form-control" size="30" style="width:200px;">
+	                           </div>
+	                           <button  type="button" class="btn btn-primary" onclick="search()">
+	                               <span class="glyphicon glyphicon-search"></span>
+	                           </button>
 		                    </div>
 		                    <br>
 		                    <br>
-		                    <button type="button" class="btn btn-danger">删除</button>
-		                    <button type="button" class="btn btn-default">保存全部</button>
+		                    <button type="button" class="btn btn-danger" onclick="del_Pos()">删除</button>
+		                    <button type="button" class="btn btn-danger" onclick="check_All()">全选</button>
 		                    <table class="table bootstrap-admin-table-with-actions">
 		
 		                        <thead>
@@ -230,19 +164,7 @@
 		                        </tr>
 		                        </thead>
 		                        <tbody id="tbody">
-		                        <tr>
-		                            <td><input type="checkbox" class="checkbox"></td>   
-		                            <td>财务部</td>
-		                            <td>部长助理</td>
-		                            <td>1</td>
-		                            <td>2016-12-03</td>
-		                            <td>有丰富经验者优先，月薪1万</td>
-		                            <td>                                
-		                               <button  class="btn btn-default" 
-		                        data-toggle="modal" data-target="#popChange" 
-		                        data-backdrop = "static" onclick="fixPop(this)"><span class="glyphicon glyphicon-edit">修改</span></button>
-		                            </td>
-		                        </tr>
+		                        <!-- 填充职位信息 -->
 		                        </tbody>
 		
 		                    </table>
@@ -271,14 +193,15 @@
                         <div class="form-group">
                             <label for="department1" class="control-label col-md-2">申请部门</label>
                             <div class="col-md-10">
-                                <input type="text" id="department1" class="form-control" />
+                                <select class="form-control" id="department1" type="text" name="department" placeholder="请输入申请部门">
+			                            </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="position" class="control-label col-md-2">职位</label>
                             <div class="col-md-10">
-                                <input type="text" id="position" class="form-control" />
+                                <input type="text" id="position1" class="form-control" />
                             </div>
                         </div>
 
@@ -305,7 +228,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="save2table()">保存</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="updatePos(this)" id="savebutton">保存</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                             </div>
                         </div>

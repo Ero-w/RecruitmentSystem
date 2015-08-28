@@ -3,12 +3,14 @@ package com.rs.dao.impl;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.rs.dao.IPositionDAO;
 import com.rs.model.Position;
 
 /**
@@ -23,7 +25,7 @@ import com.rs.model.Position;
  * @author MyEclipse Persistence Tools
  */
 
-public class PositionDAO extends HibernateDaoSupport {
+public class PositionDAO extends HibernateDaoSupport implements IPositionDAO{
 	private static final Log log = LogFactory.getLog(PositionDAO.class);
 	// property constants
 	public static final String PNAME = "pname";
@@ -34,15 +36,18 @@ public class PositionDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(Position transientInstance) {
+	public boolean save(Position transientInstance) {
+		boolean flag=false;
 		log.debug("saving Position instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			flag=true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
 			throw re;
 		}
+		return flag;
 	}
 
 	public void delete(Position persistentInstance) {
@@ -94,10 +99,42 @@ public class PositionDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByPname(Object pname) {
-		return findByProperty(PNAME, pname);
+//	public List findByPname(Object pname) {
+//		return findByProperty(PNAME, pname);
+//	}
+	
+	public List findByPname(Object pname) {//模糊匹配职位名称
+		try {
+			String queryString = "from Position as model where model.pname like '%"+pname+"%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by pname failed", re);
+			throw re;
+		}
 	}
-
+	
+	public List findByDateline(Date dateline){
+		java.sql.Date date2=new java.sql.Date(dateline.getTime());
+		try {
+			String queryString = "from Position as model where model.deadline <= '" + date2+"'";//时间字符串加上引号
+			
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by date failed", re);
+			throw re;
+		}
+	}
+	
+	public List findByDId(Integer DId){
+		try {
+			String queryString = "from Position as model where model.department.did = "+DId;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by department failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByCount(Object count) {
 		return findByProperty(COUNT, count);
 	}
@@ -130,15 +167,18 @@ public class PositionDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachDirty(Position instance) {
+	public boolean attachDirty(Position instance) {
+		boolean flag=false;
 		log.debug("attaching dirty Position instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
+			flag=true;
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
 		}
+		return flag;
 	}
 
 	public void attachClean(Position instance) {

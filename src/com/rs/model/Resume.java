@@ -1,5 +1,7 @@
 package com.rs.model;
 
+import java.util.Date;
+
 /**
  * Resume entity. @author MyEclipse Persistence Tools
  */
@@ -13,6 +15,7 @@ public class Resume implements java.io.Serializable {
 	private String education;
 	private String experience;
 	private String skill;
+	private Date createDate;
 
 	// Constructors
 
@@ -68,6 +71,14 @@ public class Resume implements java.io.Serializable {
 
 	public void setSkill(String skill) {
 		this.skill = skill;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 }
